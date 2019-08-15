@@ -18,7 +18,7 @@ timezone:
 url: https://sudot.net
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: :year/:id/
+permalink: :id/
 permalink_defaults:
 
 # Directory
@@ -88,4 +88,4 @@ deploy:
   type: git
   repo: git@github.com:sudot/sudot.github.io.git
   branch: master
-  message: "更新静态文件: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"

@@ -318,7 +318,7 @@ reward:
         img: /images/wechat.jpg
         text: 微信
     - itemlist:
-        img: /images/alipay.png
+        img: /images/alipay.jpg
         text: 支付宝
 
 related_post:
