@@ -45,3 +45,11 @@ sudot.github.io
   ```
   git clone git@github.com:sudot/notes.git source/_posts
   ```
+
+
+## 修改原主题部分
+
+1. 修改首页子标题`subtitle`
+    > 删除原`subtitle`下`sub1`和`sub2`属性，  
+    > 在`subtitle`下添加`contents`属性，此属性为数组，可添加任意多行内容，
+    > 但是内容不能包含英文标点下的逗号(`,`)

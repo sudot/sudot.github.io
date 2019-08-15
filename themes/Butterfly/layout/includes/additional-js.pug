@@ -39,10 +39,12 @@ if theme.translate && theme.translate.enable
 
 
 if is_home() && theme.subtitle.enable
-  script(src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9")    
+  script(src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9")
   script.
+    var typedStrings = [];
     var typed = new Typed(".subtitle", {
-    strings: ['!{theme.subtitle.sub1}','!{theme.subtitle.sub2}'],
+    //- strings: ['!{theme.subtitle.sub1}','!{theme.subtitle.sub2}'],
+    strings: '!{theme.subtitle.contents}'.split(','),
     startDelay: 300,
     typeSpeed: 100,
     loop: true,
