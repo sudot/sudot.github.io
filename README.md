@@ -63,8 +63,10 @@ sudot.github.io
 修改原因: 当`_config.yml`中`date_format`属性配置成`YYYY-MM-DD HH:mm:ss`时，时间会遮挡部分标题。效果如下：  
 ![](images/time-line-bad.png)  
 
-修改结果：在没有汉字混入的情况下，支持`date_format`全格式不遮挡标题。优化后的效果如下：  
-![](images/time-line-pretty.png)
+修改结果：在小于等于两个汉字混入的情况下，支持`date_format`全格式不遮挡标题。优化后的效果如下：  
+![](images/time-line-pretty-1.png)
+![](images/time-line-pretty-2.png)
+![](images/time-line-pretty-3.png)
 修改方式：
 1. 增加样式。  
   在样式文件`themes\Butterfly\source\css\_layout\page.styl`中，`.article-sort &-item &__title`后增加如下样式，与`&__title`属同级
