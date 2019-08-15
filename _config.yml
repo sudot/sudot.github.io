@@ -18,7 +18,7 @@ timezone:
 url: https://sudot.net
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: :id/
+permalink: posts/:abbrlink/
 permalink_defaults:
 
 # Directory
