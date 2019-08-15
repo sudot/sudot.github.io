@@ -8,5 +8,11 @@ mixin articleSort(posts)
         .article-sort-item.year= year
       .article-sort-item
         time.article-sort-item__time= date(article.date)
-        a.article-sort-item__title(href=url_for(article.path))= article.title || 'No Title'
+        - var length = date(article.date).length
+        if length <= 13
+          a.article-sort-item__title(href=url_for(article.path))= article.title || 'No Title'
+        else if length <= 16
+          a.article-sort-item__title-6(href=url_for(article.path))= article.title || 'No Title'
+        else
+          a.article-sort-item__title-7(href=url_for(article.path))= article.title || 'No Title'
     - })

@@ -49,7 +49,55 @@ sudot.github.io
 
 ## 修改原主题部分
 
-1. 修改首页子标题`subtitle`
-    > 删除原`subtitle`下`sub1`和`sub2`属性，  
-    > 在`subtitle`下添加`contents`属性，此属性为数组，可添加任意多行内容，
-    > 但是内容不能包含英文标点下的逗号(`,`)
+### 修改首页子标题`subtitle`
+
+修改原因: 原子标题只支持两串字符，不能任意添加多串  
+修改结果：支持任意多串字符显示
+修改方式：
+1. 删除原`subtitle`下`sub1`和`sub2`属性
+2. 在`subtitle`下添加`contents`属性，此属性为数组，可添加任意多行内容
+3. 但是内容不能包含英文标点下的逗号(`,`)
+
+### 优化归档页面时间轴显示
+
+修改原因: 当`_config.yml`中`date_format`属性配置成`YYYY-MM-DD HH:mm:ss`时，时间会遮挡部分标题。效果如下：  
+![](images/time-line-bad.png)  
+
+修改结果：在没有汉字混入的情况下，支持`date_format`全格式不遮挡标题。优化后的效果如下：  
+![](images/time-line-pretty.png)
+修改方式：
+1. 增加样式。  
+  在样式文件`themes\Butterfly\source\css\_layout\page.styl`中，`.article-sort &-item &__title`后增加如下样式，与`&__title`属同级
+  ```
+  &__title-6
+    display: block
+    margin-left: 6rem
+    color: $font-black
+    text-decoration: none
+    font-size: 0.8rem
+    cursor: pointer
+
+  &__title-7
+    display: block
+    margin-left: 7rem
+    color: $font-black
+    text-decoration: none
+    font-size: 0.8rem
+    cursor: pointer
+
+  ```
+2. 增加时间格式长度判断。  
+  在页面文件`themes\Butterfly\layout\includes\mixins\article-sort.pug`中，将原语句
+    ```
+    a.article-sort-item__title(href=url_for(article.path))= article.title || 'No Title'
+    ```
+    修改为如下语句
+    ```
+    - var length = date(article.date).length
+    if length <= 13
+      a.article-sort-item__title(href=url_for(article.path))= article.title || 'No Title'
+    else if length <= 16
+      a.article-sort-item__title-6(href=url_for(article.path))= article.title || 'No Title'
+    else
+      a.article-sort-item__title-7(href=url_for(article.path))= article.title || 'No Title'
+    ```
