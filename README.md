@@ -70,24 +70,23 @@ sudot.github.io
 修改方式：
 1. 增加样式。  
   在样式文件`themes\Butterfly\source\css\_layout\page.styl`中，`.article-sort &-item &__title`后增加如下样式，与`&__title`属同级
-  ```
-  &__title-6
-    display: block
-    margin-left: 6rem
-    color: $font-black
-    text-decoration: none
-    font-size: 0.8rem
-    cursor: pointer
+    ```
+    &__title-6
+      display: block
+      margin-left: 6rem
+      color: $font-black
+      text-decoration: none
+      font-size: 0.8rem
+      cursor: pointer
 
-  &__title-7
-    display: block
-    margin-left: 7rem
-    color: $font-black
-    text-decoration: none
-    font-size: 0.8rem
-    cursor: pointer
-
-  ```
+    &__title-7
+      display: block
+      margin-left: 7rem
+      color: $font-black
+      text-decoration: none
+      font-size: 0.8rem
+      cursor: pointer
+    ```
 2. 增加时间格式长度判断。  
   在页面文件`themes\Butterfly\layout\includes\mixins\article-sort.pug`中，将原语句
     ```
