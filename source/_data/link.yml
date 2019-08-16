@@ -1,0 +1,17 @@
+- class_name: 我的链接
+  link_list:
+    - name: github
+      link: https://github.com/sudot
+      avatar: https://github.com/fluidicon.png
+      descr: 此人很懒, 啥也没写
+    - name: gitee
+      link: https://gitee.com/sudot
+      avatar: https://assets.gitee.com/assets/favicon-e87ded4710611ed62adc859698277663.ico
+      descr: 此人很懒, 啥也没写
+
+- class_name: 友情链接
+  link_list:
+    - name: 工具集
+      link: http://tblogs.cn
+      avatar: http://tblogs.cn/style/images/logo.png
+      descr: 从现在起，做一个幸福的人。喂马，劈柴，周游世界。从现在起，关心粮食和蔬菜。我有一所房子，面朝大海，春暖花开。

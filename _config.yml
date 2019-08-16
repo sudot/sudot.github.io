@@ -5,9 +5,21 @@
 # Site
 #title: Hexo
 title: 面朝大海春暖花开
-subtitle:
-description:
+subtitle: sudot
+description: sudot的个人笔记和心得分享，并包含一些生产实际案例。从现在起，做一个幸福的人。喂马，劈柴，周游世界。从现在起，关心粮食和蔬菜。我有一所房子，面朝大海，春暖花开。
 keywords:
+  - sudot
+  - java
+  - dart
+  - flutter
+  - js
+  - JavaScript
+  - 全栈
+  - 程序员
+  - 博客
+  - 个人笔记
+  - 心得分享
+  - 案例分享
 author: sudot
 #language: en
 language: zh-CN
@@ -18,7 +30,7 @@ timezone:
 url: https://sudot.net
 root: /
 #permalink: :year/:month/:day/:title/
-permalink: posts/:abbrlink/
+permalink: p/:abbrlink/
 permalink_defaults:
 
 # Directory
@@ -89,3 +101,11 @@ deploy:
   repo: git@github.com:sudot/sudot.github.io.git
   branch: master
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+
+# Generate categories from directory-tree
+# Dependencies: https://github.com/xu-song/hexo-auto-category
+# depth: the depth of directory-tree you want to generate, should > 0
+# 按文章存放目录,自动生成分类
+auto_category:
+  enable: true
+  depth:
