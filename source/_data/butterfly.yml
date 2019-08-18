@@ -255,9 +255,9 @@ footer_copyright:
   enable: true
 
 ICP:
-  enable: false
-  url: 
-  text:
+  enable: true
+  url: http://www.beian.miit.gov.cn/
+  text: 渝ICP备15006197号
 
 # busuanzi count for PV / UV in site
 busuanzi:
