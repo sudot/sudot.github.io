@@ -296,7 +296,7 @@ Flink:
 
 runtimeshow:
   enable: true
-  start_date: 2019/08/13 19:16:00
+  start_date: 2019-08-13 19:16:00
 
 
 nightshift:
