@@ -1,4 +1,5 @@
-# sudot.net
+# notes
+个人笔记
 
 [sudot.net](https://sudot.net)站点内容
 
