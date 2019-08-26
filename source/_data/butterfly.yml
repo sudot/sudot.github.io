@@ -98,10 +98,10 @@ katex:
 
 # Analysis
 # ---------------
-# baidu_analytics: 
+baidu_analytics: 010a6fa86a261f958347c6ceedc94711
 
 #Google Analytics
-google_analytics:
+google_analytics: UA-146420494-1
 
 
 # stylesheets loaded in the <head>
@@ -234,16 +234,16 @@ disqus:
 
 # valine comment system. https://valine.js.org
 valine:
-  enable: false # if you want use valine,please set this value is true
-  appId:   # leancloud application app id
-  appKey:   # leancloud application app key
+  enable: true # if you want use valine,please set this value is true
+  appId: pQzV1yEVAHwjMORiMm8mexYL-gzGzoHsz # leancloud application app id
+  appKey: 5kySKsaKSXNlpBKJ8bb55aRp # leancloud application app key
   notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
   verify: false # valine verify code (true/false)
-  pageSize: 10 # comment list page size
+  pageSize: 20 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
-  lang: en # i18n: zh-cn/en
-  placeholder: Please leave your footprints # valine comment input placeholder(like: Please leave your footprints )
-  guest_info: nick,mail,link #valine comment header inf
+  lang: zh-cn # i18n: zh-cn/en
+  placeholder: 请留下你的脚印 # valine comment input placeholder(like: Please leave your footprints )
+  guest_info: 昵称,邮箱地址,网站链接 #valine comment header inf
 
 # Footer Settings
 # ---------------
