@@ -37,15 +37,46 @@ sudot.github.io
 
 ## 操作步骤
 
-1. 拉取此配置仓库
+1. 安装 nodejs
+  下载地址：https://nodejs.org/zh-cn/download/  
+  配置国内镜像用于加速下载依赖
+  ```
+  npm config set registry https://registry.npm.taobao.org
+  npm config set disturl https://npm.taobao.org/dist
+  ```
+  
+2. 拉取此配置仓库
   ```
   git clone -b hexo git@github.com:sudot/sudot.net.git
   ```
-2. 拉取笔记仓库
+  
+3. 拉取笔记仓库
   ```
   git clone git@github.com:sudot/notes.git source/_posts
   ```
+  
+4. 安装项目依赖
+  ```
+  npm install
+  ```
+  
+5. 创建文章
+  
+  命令：```hero new <名称>```
+  
+  简写：```hexo n <名称>```
+  
+6. 本地预览
 
+  命令：```hero server```
+
+  简写：```hexo s```
+
+7. 发布
+
+  命令：```hexo generate --deploy``` 或 ```hexo deploy --generate```
+
+  简写：```hexo g -d``` 或 ```hexo d -g```
 
 ## 修改原主题部分
 
@@ -68,6 +99,7 @@ sudot.github.io
 ![](images/time-line-pretty-2.png)  
 ![](images/time-line-pretty-3.png)  
 修改方式：
+
 1. 增加样式。  
   在样式文件`themes\Butterfly\source\css\_layout\page.styl`中，`.article-sort &-item &__title`后增加如下样式，与`&__title`属同级
     ```
