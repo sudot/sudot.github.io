@@ -140,7 +140,7 @@ top_img: false
 
 #the banner image of post
 # if the post not set the post cover and post top image, it will show it
-post_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/post.png
+post_img: https://images.sudot.net/blogs/DSC00264.jpg
 
 # the default cover of the post
 # 文章封面
