@@ -1,8 +1,8 @@
 # sudot.net
 
-使用[Hexo](https://hexo.io)将md文件生成静态页面
+使用 [Hexo](https://hexo.io) 将 md 文件生成静态页面
 
-使用[Jerry Wong](https://github.com/jerryc127)修改的主题[Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)，使用文档很完整很详细，点击[查看使用文档](https://jerryc.me/posts/21cfbf15/)
+使用 [Jerry Wong](https://github.com/jerryc127) 修改的主题 [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)，使用文档很完整很详细，点击[查看使用文档](https://jerryc.me/posts/21cfbf15/)
 
 ## 感想
 
