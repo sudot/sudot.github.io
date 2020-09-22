@@ -1,100 +1,68 @@
-if (theme.algolia_search.enable)
-  script(async src=url_for('/js/search/algolia.js'))
-if (theme.mathjax && theme.mathjax.enable)
-  if(!is_tag() && !is_category() && !is_archive())
-    include ./third-party/mathjax.pug
-if (theme.katex && theme.katex.enable)
-  if(!is_tag() && !is_category() && !is_archive())
-    include ./third-party/katex.pug
-if (theme.local_search && theme.local_search.enable)
-  script(async src=url_for('/js/search/local-search.js'))
+div
+  script(src=url_for(theme.CDN.jquery))
+  script(src=url_for(theme.CDN.utils))
+  script(src=url_for(theme.CDN.main))
 
-if theme.fireworks && theme.fireworks.enable
-  script(src='https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js')
-  script(src=url_for('/js/third-party/fireworks.js'))
+  if theme.translate && theme.translate.enable
+    script(src=url_for(theme.CDN.translate))
 
-if theme.nightshift.enable
-  script(src=url_for('js/nightshift.js'))
+  if theme.medium_zoom
+    script(src=url_for(theme.CDN.medium_zoom))
+  else if theme.fancybox
+    script(src=url_for(theme.CDN.fancybox))
 
-if (theme.canvas_ribbon && theme.canvas_ribbon.enable)
-  include ./third-party/canvas-ribbon.pug
+  if theme.instantpage
+    script(src=url_for(theme.CDN.instantpage) type="module" defer)
 
-if (theme.canvas_ribbon_piao && theme.canvas_ribbon_piao.enable)
-  include ./third-party/canvas-ribbon-piao.pug
+  if theme.lazyload.enable
+    script(src=url_for(theme.CDN.lazyload))
 
-if theme.baidu_push && theme.baidu_push.enable
-  script(src=url_for('js/baidupush.js')) 
+  if (theme.snackbar && theme.snackbar.enable)
+    script(src=url_for(theme.CDN.snackbar))
 
-if theme.activate_power_mode.enable
-  script(src=url_for('js/activate-power-mode.js'))
-  script.
-    POWERMODE.colorful = true; // make power mode colorful
-    POWERMODE.shake = true; // turn off shake
-    document.body.addEventListener('input', POWERMODE);
+  if theme.pangu && theme.pangu.enable
+    !=partial('includes/third-party/pangu.pug', {}, {cache:theme.fragment_cache})
 
-if theme.translate && theme.translate.enable
-  script(src=url_for('/js/tw_cn.js'))
-  script.
-    translateInitilization()
+  //- search
+  if theme.algolia_search.enable
+    script(src=url_for(theme.CDN.algolia_js))
+  else if theme.local_search.enable
+    script(src=url_for(theme.CDN.local_search))
 
+  if theme.preloader
+    !=partial('includes/loading/loading-js', {}, {cache:theme.fragment_cache})
 
-if is_home() && theme.subtitle.enable
-  script(src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9")
-  script.
-    var typedStrings = [];
-    var typed = new Typed(".subtitle", {
-    //- strings: ['!{theme.subtitle.sub1}','!{theme.subtitle.sub2}'],
-    strings: '!{theme.subtitle.contents}'.split(','),
-    startDelay: 300,
-    typeSpeed: 100,
-    loop: true,
-    backSpeed: 50
-    });
+  .js-pjax
+    if is_home() && theme.subtitle.enable
+      include ./third-party/subtitle.pug
 
-if is_home()  
-  script.
-    //首頁fullpage
-    function alignContent() {
-      for (var n = $(window).height(), e = document.querySelectorAll(".full_page"), i = 0; i < e.length; i++) 
-        e[i].style.height = n + "px";
-        $("#site-info").each(function () {
-          var x = $(this).height();
-          $(this).css("top", (n-x)/2)       
-        })
-    }
+    include ./third-party/math/index.pug
 
-    function recent_post_padding() {
-      $(".recent-post-info").each(function () {
-        var k = $(".recent-post-item").height();
-        var e = $(this).height();
-        $(this).css({"padding-top": (k-e)/2 , "padding-bottom": (k-e)/2 })
-      })   
-    }
+    if commentsJsLoad
+      include ./third-party/comments/js.pug
 
-    alignContent();
+    if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
+      script(async src=url_for(theme.CDN.busuanzi))
 
-    //recent-post-item垂直置中
-    if ($(window).width() > 768) {    
-      recent_post_padding();
-    }
-     
-    $(window).bind("resize", function () {
+  !=partial('includes/third-party/prismjs', {}, {cache:theme.fragment_cache})
 
-      alignContent()
+  if theme.aside.enable && theme.newest_comments.enable
+    if theme.pjax.enable
+      !=partial('includes/third-party/newest-comments/index', {}, {cache:theme.fragment_cache})
+    else if (!is_post() && page.aside !== false)
+      !=partial('includes/third-party/newest-comments/index', {}, {cache:theme.fragment_cache})
 
-      if ($(window).width() > 768) {    
-        recent_post_padding();     
-      }
-    })
+  !=fragment_cache('injectBottom', function(){return injectHtml(theme.inject.bottom)})
 
-if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
-  script(async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js")
+  !=partial('includes/third-party/effect', {}, {cache:theme.fragment_cache})
 
-if theme.instantpage.enable
-  script(src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module")
+  !=partial('includes/third-party/chat/index', {}, {cache:theme.fragment_cache})
 
-if theme.lazyload.enable
-  script(src=url_for(theme.lazyload.script))
-  script. 
-    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-    observer.observe();
+  if theme.aplayerInject && theme.aplayerInject.enable
+    if theme.pjax.enable || theme.aplayerInject.per_page
+      include ./head/aplayer.pug
+    else if page.aplayer
+      include ./head/aplayer.pug
+
+  if theme.pjax.enable
+    !=partial('includes/third-party/pjax', {}, {cache:theme.fragment_cache})

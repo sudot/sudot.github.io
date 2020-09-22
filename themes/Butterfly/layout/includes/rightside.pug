@@ -1,9 +1,28 @@
-section#rightside.rightside
-  if theme.readmode.enable && is_post()
-    i#readmode.fa.fa-book(title=_p('rightside.readmode_title')) 
-  i#font_plus.fa.fa-plus(title=_p('rightside.font_plus_title'))
-  i#font_minus.fa.fa-minus(title=_p('rightside.font_minus_title'))
-  if theme.translate && theme.translate.enable
-    a#translateLink.translate_chn_to_cht(href="javascript:translatePage();" title=_p('rightside.translate_title'))= theme.translate.default
-  if theme.nightshift.enable
-    i#nightshift.fa.fa-moon-o.nightshift(title=_p('rightside.night_mode_title'))
+section#rightside
+  #rightside-config-hide
+    if is_post()
+      if theme.readmode
+        button#readmode(type="button" title=_p('rightside.readmode_title'))
+          i.fas.fa-book-open
+    if theme.translate && theme.translate.enable
+      button#translateLink(type="button" title=_p('rightside.translate_title'))= theme.translate.default
+    if theme.darkmode.enable && theme.darkmode.button
+      button#darkmode(type="button" title=_p('rightside.night_mode_title'))
+        i.fas.fa-adjust
+  #rightside-config-show
+    button#rightside_config(type="button" title=_p("rightside.setting"))
+      i.fas.fa-cog
+    if is_post() && page.comments !== false && theme.comments.use
+      a#to_comment(href="#post-comment" title=_p("rightside.scroll_to_comment"))
+        i.fas.fa-comments
+    if showToc
+      button#mobile-toc-button.close(type="button" title=_p("rightside.toc"))
+        i.fas.fa-list-ul
+    if theme.chat_btn
+      button#chat_btn(type="button" title=_p("rightside.chat_btn"))
+        i.fas.fa-sms
+
+    button#go-up(type="button" title=_p("rightside.back_to_top"))
+      i.fas.fa-arrow-up
+
+
