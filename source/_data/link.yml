@@ -6,7 +6,7 @@
       descr: 此人很懒, 啥也没写
     - name: gitee
       link: https://gitee.com/sudot
-      avatar: https://assets.gitee.com/assets/favicon-e87ded4710611ed62adc859698277663.ico
+      avatar: /images/gitee.ico
       descr: 此人很懒, 啥也没写
 
 - class_name: 友情链接
