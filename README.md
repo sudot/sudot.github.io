@@ -70,13 +70,13 @@ npm install
 
 6. 本地预览
 
-  命令：```hero server```
+  命令：```npm run dev``` 或 ```hexo server``` 或 ```npx hexo server```
 
-  简写：```hexo s```
+  简写：```hexo s``` 或 ```npx hexo s```
 
 7. 发布
 
-  命令：```hexo generate --deploy``` 或 ```hexo deploy --generate```
+  命令：```npm run build``` 或 ```hexo generate --deploy``` 或 ```hexo deploy --generate```
 
   简写：```hexo g -d``` 或 ```hexo d -g```
 
