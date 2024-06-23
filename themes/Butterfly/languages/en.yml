@@ -91,6 +91,7 @@ bookmark:
   title: Bookmark
 
 rightside:
+  copy_to_wechat_mp: copy to Wechat Mp
   readmode_title: Read Mode
   font_plus_title: Increase Font Size
   font_minus_title: Decrease Font Size

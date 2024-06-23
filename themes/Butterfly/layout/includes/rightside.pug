@@ -1,6 +1,8 @@
 section#rightside
   #rightside-config-hide
     if is_post()
+      button#copy_to_wechat_mp(type="button" title=_p("rightside.copy_to_wechat_mp"))
+        i.fas.fa-copy
       if theme.readmode
         button#readmode(type="button" title=_p('rightside.readmode_title'))
           i.fas.fa-book-open

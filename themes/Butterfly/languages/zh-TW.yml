@@ -93,6 +93,7 @@ bookmark:
   title: 新增書籤
 
 rightside:
+  copy_to_wechat_mp: 复制到微信公众号
   readmode_title: 閱讀模式
   font_plus_title: 放大字型
   font_minus_title: 縮小字型

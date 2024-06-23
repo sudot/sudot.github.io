@@ -1,10 +1,9 @@
-
 /**
-  * 當menu過多時，自動適配，避免UI錯亂
-  * @param {*} n
-  * 傳入 1 sidebar打開時
-  * 傳入 2 正常狀態下
-  */
+ * 當menu過多時，自動適配，避免UI錯亂
+ * @param {*} n
+ * 傳入 1 sidebar打開時
+ * 傳入 2 正常狀態下
+ */
 
 $(function () {
   const blogNameWidth = $('#site-name').width()
@@ -15,7 +14,8 @@ $(function () {
     const $nav = $('#nav')
     let t
     if (n === 0) t = true
-    else if (n === 1) t = blogNameWidth + menusWidth > $nav.width() - sidebarWidth - 30
+    else if (n === 1)
+      t = blogNameWidth + menusWidth > $nav.width() - sidebarWidth - 30
     else t = blogNameWidth + menusWidth > $nav.width() - 30
 
     if (t) {
@@ -33,8 +33,8 @@ $(function () {
   }
 
   /**
- * 進入post頁sidebar處理
- */
+   * 進入post頁sidebar處理
+   */
   const OpenSidebarAuto = () => {
     if (window.innerWidth > 1024 && $('#toggle-sidebar').hasClass('on')) {
       setTimeout(function () {
@@ -44,19 +44,28 @@ $(function () {
   }
 
   /**
- * 點擊左下角箭頭,顯示sidebar
- */
+   * 點擊左下角箭頭,顯示sidebar
+   */
 
   const closeSidebar = () => {
-    $('#sidebar').removeClass('tocOpenPc').animate({
-      left: '-300px'
-    }, 400)
-    $('#menus').animate({
-      paddingRight: 0
-    }, 400)
-    $('#body-wrap').animate({
-      paddingLeft: 0
-    }, 400)
+    $('#sidebar').removeClass('tocOpenPc').animate(
+      {
+        left: '-300px',
+      },
+      400
+    )
+    $('#menus').animate(
+      {
+        paddingRight: 0,
+      },
+      400
+    )
+    $('#body-wrap').animate(
+      {
+        paddingLeft: 0,
+      },
+      400
+    )
     if ($('#nav').hasClass('hide-menu')) {
       setTimeout(function () {
         adjustMenu(2)
@@ -68,15 +77,24 @@ $(function () {
     if (!$('#nav').hasClass('hide-menu')) {
       adjustMenu(1)
     }
-    $('#sidebar').addClass('tocOpenPc').animate({
-      left: 0
-    }, 400)
-    $('#menus').animate({
-      paddingRight: 300
-    }, 400)
-    $('#body-wrap').animate({
-      paddingLeft: 300
-    }, 400)
+    $('#sidebar').addClass('tocOpenPc').animate(
+      {
+        left: 0,
+      },
+      400
+    )
+    $('#menus').animate(
+      {
+        paddingRight: 300,
+      },
+      400
+    )
+    $('#body-wrap').animate(
+      {
+        paddingLeft: 300,
+      },
+      400
+    )
   }
 
   const toggleSidebar = function () {
@@ -92,9 +110,9 @@ $(function () {
   }
 
   /**
- * 手機menu和toc按鈕點擊
- * 顯示menu和toc的sidebar
- */
+   * 手機menu和toc按鈕點擊
+   * 顯示menu和toc的sidebar
+   */
 
   const sidebarFn = () => {
     const $toggleMenu = $('#toggle-menu')
@@ -104,7 +122,7 @@ $(function () {
     const $body = $('body')
     const $sidebar = $('#sidebar')
 
-    function openMobileSidebar (name) {
+    function openMobileSidebar(name) {
       btf.sidebarPaddingR()
       $body.css('overflow', 'hidden')
       $menuMask.fadeIn()
@@ -116,11 +134,13 @@ $(function () {
 
       if (name === 'toc') {
         $mobileTocButton.removeClass('close').addClass('open')
-        $sidebar.addClass('tocOpenMobile').css({ transform: 'translate3d(-100%,0,0)', left: '' })
+        $sidebar
+          .addClass('tocOpenMobile')
+          .css({ transform: 'translate3d(-100%,0,0)', left: '' })
       }
     }
 
-    function closeMobileSidebar (name) {
+    function closeMobileSidebar(name) {
       $body.css({ overflow: '', 'padding-right': '' })
       $menuMask.fadeOut()
 
@@ -179,8 +199,8 @@ $(function () {
   }
 
   /**
- * 首頁top_img底下的箭頭
- */
+   * 首頁top_img底下的箭頭
+   */
   const scrollDownInIndex = () => {
     $('#scroll_down').on('click', function () {
       btf.scrollToDest('#content-inner')
@@ -188,15 +208,19 @@ $(function () {
   }
 
   /**
- * 代碼
- * 只適用於Hexo默認的代碼渲染
- */
+   * 代碼
+   * 只適用於Hexo默認的代碼渲染
+   */
   const addHighlightTool = function () {
     const isHighlightCopy = GLOBAL_CONFIG.highlight.highlightCopy
     const isHighlightLang = GLOBAL_CONFIG.highlight.highlightLang
     const isHighlightShrink = GLOBAL_CONFIG_SITE.isHighlightShrink
-    const isShowTool = isHighlightCopy || isHighlightLang || isHighlightShrink !== undefined
-    const $figureHighlight = GLOBAL_CONFIG.highlight.plugin === 'highlighjs' ? $('figure.highlight') : $('pre[class*="language-"]')
+    const isShowTool =
+      isHighlightCopy || isHighlightLang || isHighlightShrink !== undefined
+    const $figureHighlight =
+      GLOBAL_CONFIG.highlight.plugin === 'highlighjs'
+        ? $('figure.highlight')
+        : $('pre[class*="language-"]')
 
     if (isShowTool && $figureHighlight.length) {
       const isPrismjs = GLOBAL_CONFIG.highlight.plugin === 'prismjs'
@@ -210,66 +234,99 @@ $(function () {
       }
 
       if (isHighlightCopy) {
-        highlightCopyEle = '<div class="copy-notice"></div><i class="fas fa-paste copy-button"></i>'
+        highlightCopyEle =
+          '<div class="copy-notice"></div><i class="fas fa-paste copy-button"></i>'
       }
 
       if (isHighlightLang) {
         if (isPrismjs) {
           $figureHighlight.each(function () {
             const $this = $(this)
-            const langName = $this.attr('data-language') !== undefined ? $this.attr('data-language') : 'Code'
+            const langName =
+              $this.attr('data-language') !== undefined
+                ? $this.attr('data-language')
+                : 'Code'
             const highlightLangEle = `<div class="code-lang">${langName}</div>`
-            $this.wrap('<figure class="highlight"></figure>').before(`<div class="highlight-tools ${highlightShrinkClass}">${highlightShrinkEle + highlightLangEle + highlightCopyEle}</div>`)
+            $this
+              .wrap('<figure class="highlight"></figure>')
+              .before(
+                `<div class="highlight-tools ${highlightShrinkClass}">${
+                  highlightShrinkEle + highlightLangEle + highlightCopyEle
+                }</div>`
+              )
           })
         } else {
           $figureHighlight.each(function (i, o) {
             const $this = $(this)
             let langName = $this.attr('class').split(' ')[1]
-            if (langName === 'plain' || langName === undefined) langName = 'Code'
+            if (langName === 'plain' || langName === undefined)
+              langName = 'Code'
             const highlightLangEle = `<div class="code-lang">${langName}</div>`
-            $this.prepend(`<div class="highlight-tools ${highlightShrinkClass}">${highlightShrinkEle + highlightLangEle + highlightCopyEle}</div>`)
+            $this.prepend(
+              `<div class="highlight-tools ${highlightShrinkClass}">${
+                highlightShrinkEle + highlightLangEle + highlightCopyEle
+              }</div>`
+            )
           })
         }
       } else {
-        const ele = `<div class="highlight-tools ${highlightShrinkClass}">${highlightShrinkEle + highlightCopyEle}</div>`
-        if (isPrismjs) $figureHighlight.wrap('<figure class="highlight"></figure>').before(ele)
+        const ele = `<div class="highlight-tools ${highlightShrinkClass}">${
+          highlightShrinkEle + highlightCopyEle
+        }</div>`
+        if (isPrismjs)
+          $figureHighlight
+            .wrap('<figure class="highlight"></figure>')
+            .before(ele)
         else $figureHighlight.prepend(ele)
       }
 
       /**
-     * 代碼收縮
-     */
+       * 代碼收縮
+       */
 
       if (isHighlightShrink !== undefined) {
         $('.highlight-tools >.expand').on('click', function () {
           const $this = $(this)
           const $table = $this.parent().nextAll()
           $this.toggleClass('closed')
-          $table.is(':visible') ? $table.css('display', 'none') : $table.css('display', 'block')
+          $table.is(':visible')
+            ? $table.css('display', 'none')
+            : $table.css('display', 'block')
         })
       }
 
       /**
-     * 代碼copy
-     */
+       * 代碼copy
+       */
       if (isHighlightCopy) {
         const copy = function (text, ctx) {
-          if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
+          if (
+            document.queryCommandSupported &&
+            document.queryCommandSupported('copy')
+          ) {
             document.execCommand('copy')
             if (GLOBAL_CONFIG.Snackbar !== undefined) {
               btf.snackbarShow(GLOBAL_CONFIG.copy.success)
             } else {
-              $(ctx).prev('.copy-notice')
+              $(ctx)
+                .prev('.copy-notice')
                 .text(GLOBAL_CONFIG.copy.success)
-                .animate({
-                  opacity: 1
-                }, 450, function () {
-                  setTimeout(function () {
-                    $(ctx).prev('.copy-notice').animate({
-                      opacity: 0
-                    }, 650)
-                  }, 400)
-                })
+                .animate(
+                  {
+                    opacity: 1,
+                  },
+                  450,
+                  function () {
+                    setTimeout(function () {
+                      $(ctx).prev('.copy-notice').animate(
+                        {
+                          opacity: 0,
+                        },
+                        650
+                      )
+                    }, 400)
+                  }
+                )
             }
           } else {
             if (GLOBAL_CONFIG.Snackbar !== undefined) {
@@ -286,8 +343,10 @@ $(function () {
           $buttonParent.addClass('copy-true')
           const selection = window.getSelection()
           const range = document.createRange()
-          if (isPrismjs) range.selectNodeContents($buttonParent.find('> pre code')[0])
-          else range.selectNodeContents($buttonParent.find('table .code pre')[0])
+          if (isPrismjs)
+            range.selectNodeContents($buttonParent.find('> pre code')[0])
+          else
+            range.selectNodeContents($buttonParent.find('table .code pre')[0])
           selection.removeAllRanges()
           selection.addRange(range)
           const text = selection.toString()
@@ -300,22 +359,24 @@ $(function () {
   }
 
   /**
- * PhotoFigcaption
- */
-  function addPhotoFigcaption () {
+   * PhotoFigcaption
+   */
+  function addPhotoFigcaption() {
     const images = $('#article-container img').not('.justified-gallery img')
     images.each(function (i, o) {
       const $this = $(o)
       if ($this.attr('alt')) {
-        const t = $('<div class="img-alt is-center">' + $this.attr('alt') + '</div>')
+        const t = $(
+          '<div class="img-alt is-center">' + $this.attr('alt') + '</div>'
+        )
         $this.after(t)
       }
     })
   }
 
   /**
- * justified-gallery 圖庫排版
- */
+   * justified-gallery 圖庫排版
+   */
 
   let detectJgJsLoad = false
   const runJustifiedGallery = function () {
@@ -325,14 +386,17 @@ $(function () {
       $imgList.unwrap()
       if ($imgList.length) {
         $imgList.each(function (i, o) {
-          if ($(o).attr('data-lazy-src')) $(o).attr('src', $(o).attr('data-lazy-src'))
+          if ($(o).attr('data-lazy-src'))
+            $(o).attr('src', $(o).attr('data-lazy-src'))
           $(o).wrap('<div></div>')
         })
       }
 
       if (detectJgJsLoad) btf.initJustifiedGallery($justifiedGallery)
       else {
-        $('head').append(`<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.justifiedGallery.css}">`)
+        $('head').append(
+          `<link rel="stylesheet" type="text/css" href="${GLOBAL_CONFIG.justifiedGallery.css}">`
+        )
         $.getScript(`${GLOBAL_CONFIG.justifiedGallery.js}`, function () {
           btf.initJustifiedGallery($justifiedGallery)
         })
@@ -342,17 +406,23 @@ $(function () {
   }
 
   /**
- * fancybox和 mediumZoom
- */
+   * fancybox和 mediumZoom
+   */
   const addLightBox = function () {
     const isMediumZoom = GLOBAL_CONFIG.medium_zoom
     const isFancybox = GLOBAL_CONFIG.fancybox
     if (isFancybox) {
-      const images = $('#article-container img:not(.gallery-group-img)').not($('a>img'))
+      const images = $('#article-container img:not(.gallery-group-img)').not(
+        $('a>img')
+      )
       images.each(function (i, o) {
-        const lazyloadSrc = $(o).attr('data-lazy-src') ? $(o).attr('data-lazy-src') : $(o).attr('src')
+        const lazyloadSrc = $(o).attr('data-lazy-src')
+          ? $(o).attr('data-lazy-src')
+          : $(o).attr('src')
         const dataCaption = $(o).attr('alt') ? $(o).attr('alt') : ''
-        $(o).wrap(`<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${dataCaption}" class="fancybox"></a>`)
+        $(o).wrap(
+          `<a href="${lazyloadSrc}" data-fancybox="group" data-caption="${dataCaption}" class="fancybox"></a>`
+        )
       })
 
       $().fancybox({
@@ -361,22 +431,27 @@ $(function () {
         transitionEffect: 'slide',
         protect: true,
         buttons: ['slideShow', 'fullScreen', 'thumbs', 'close'],
-        hash: false
+        hash: false,
       })
     } else if (isMediumZoom) {
-      const zoom = mediumZoom(document.querySelectorAll('#article-container :not(a)>img'))
+      const zoom = mediumZoom(
+        document.querySelectorAll('#article-container :not(a)>img')
+      )
       zoom.on('open', function (event) {
-        const photoBg = $(document.documentElement).attr('data-theme') === 'dark' ? '#121212' : '#fff'
+        const photoBg =
+          $(document.documentElement).attr('data-theme') === 'dark'
+            ? '#121212'
+            : '#fff'
         zoom.update({
-          background: photoBg
+          background: photoBg,
         })
       })
     }
   }
 
   /**
- * 滾動處理
- */
+   * 滾動處理
+   */
   const scrollFn = function () {
     let initTop = 0
     let isChatShow = true
@@ -384,37 +459,39 @@ $(function () {
     const $nav = $('#nav')
     const isChatBtnHide = typeof chatBtnHide === 'function'
     const isChatBtnShow = typeof chatBtnShow === 'function'
-    $(window).scroll(btf.throttle(function (event) {
-      const currentTop = $(this).scrollTop()
-      const isDown = scrollDirection(currentTop)
-      if (currentTop > 56) {
-        if (isDown) {
-          if ($nav.hasClass('visible')) $nav.removeClass('visible')
-          if (isChatBtnShow && isChatShow === true) {
-            chatBtnHide()
-            isChatShow = false
+    $(window).scroll(
+      btf.throttle(function (event) {
+        const currentTop = $(this).scrollTop()
+        const isDown = scrollDirection(currentTop)
+        if (currentTop > 56) {
+          if (isDown) {
+            if ($nav.hasClass('visible')) $nav.removeClass('visible')
+            if (isChatBtnShow && isChatShow === true) {
+              chatBtnHide()
+              isChatShow = false
+            }
+          } else {
+            if (!$nav.hasClass('visible')) $nav.addClass('visible')
+            if (isChatBtnHide && isChatShow === false) {
+              window.chatBtnShow()
+              isChatShow = true
+            }
+          }
+          $nav.addClass('fixed')
+          if ($rightside.css('opacity') === '0') {
+            $rightside.css({ opacity: '1', transform: 'translateX(-38px)' })
           }
         } else {
-          if (!$nav.hasClass('visible')) $nav.addClass('visible')
-          if (isChatBtnHide && isChatShow === false) {
-            window.chatBtnShow()
-            isChatShow = true
+          if (currentTop === 0) {
+            $nav.removeClass('fixed').removeClass('visible')
           }
+          $rightside.css({ opacity: '', transform: '' })
         }
-        $nav.addClass('fixed')
-        if ($rightside.css('opacity') === '0') {
-          $rightside.css({ opacity: '1', transform: 'translateX(-38px)' })
-        }
-      } else {
-        if (currentTop === 0) {
-          $nav.removeClass('fixed').removeClass('visible')
-        }
-        $rightside.css({ opacity: '', transform: '' })
-      }
-    }, 200))
+      }, 200)
+    )
 
     // find the scroll direction
-    function scrollDirection (currentTop) {
+    function scrollDirection(currentTop) {
       const result = currentTop > initTop // true is down & false is up
       initTop = currentTop
       return result
@@ -422,18 +499,20 @@ $(function () {
   }
 
   /**
- *  toc
- */
+   *  toc
+   */
   const tocFn = function () {
     $('.toc-child').hide()
 
     // main of scroll
-    $(window).scroll(btf.throttle(function (event) {
-      const currentTop = $(this).scrollTop()
-      scrollPercent(currentTop)
-      findHeadPosition(currentTop)
-      autoScrollToc(currentTop)
-    }, 100))
+    $(window).scroll(
+      btf.throttle(function (event) {
+        const currentTop = $(this).scrollTop()
+        scrollPercent(currentTop)
+        findHeadPosition(currentTop)
+        autoScrollToc(currentTop)
+      }, 100)
+    )
 
     // expand toc-item
     const expandToc = function ($item) {
@@ -448,16 +527,25 @@ $(function () {
       const docHeight = $dom.height()
       const winHeight = $(window).height()
       const headerHeight = $dom.offset().top
-      const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : ($(document).height() - winHeight)
-      const scrollPercent = (currentTop - headerHeight) / (contentMath)
+      const contentMath =
+        docHeight > winHeight
+          ? docHeight - winHeight
+          : $(document).height() - winHeight
+      const scrollPercent = (currentTop - headerHeight) / contentMath
       const scrollPercentRounded = Math.round(scrollPercent * 100)
-      const percentage = (scrollPercentRounded > 100) ? 100
-        : (scrollPercentRounded <= 0) ? 0
+      const percentage =
+        scrollPercentRounded > 100
+          ? 100
+          : scrollPercentRounded <= 0
+          ? 0
           : scrollPercentRounded
       $('#sidebar .progress-num').text(percentage)
-      $('#sidebar .sidebar-toc__progress-bar').animate({
-        width: percentage + '%'
-      }, 100)
+      $('#sidebar .sidebar-toc__progress-bar').animate(
+        {
+          width: percentage + '%',
+        },
+        100
+      )
     }
 
     // anchor
@@ -474,8 +562,8 @@ $(function () {
     // li.toc-item > (a.toc-link, ol.toc-2child > (li.toc-item, ...))
     const versionBiggerFive = GLOBAL_CONFIG.hexoversion.split('.')[0] >= 5
     const findHeadPosition = function (top) {
-    // assume that we are not in the post page if no TOC link be found,
-    // thus no need to update the status
+      // assume that we are not in the post page if no TOC link be found,
+      // thus no need to update the status
       if ($('.toc-link').length === 0) {
         return false
       }
@@ -508,14 +596,16 @@ $(function () {
         // Returned list is in reverse order of the DOM elements
         // Thus `parents.last()` is the outermost .toc-child container
         // i.e. list of subsections
-        const topLink = (parents.length > 0) ? parents.last() : _this
+        const topLink = parents.length > 0 ? parents.last() : _this
         expandToc(topLink.closest('.toc-item').find('.toc-child'))
         topLink
-        // Find all top-level .toc-item containers, i.e. sections
-        // excluding the currently active one
-          .closest('.toc-item').siblings('.toc-item')
-        // Hide their respective list of subsections
-          .find('.toc-child').hide()
+          // Find all top-level .toc-item containers, i.e. sections
+          // excluding the currently active one
+          .closest('.toc-item')
+          .siblings('.toc-item')
+          // Hide their respective list of subsections
+          .find('.toc-child')
+          .hide()
       }
     }
 
@@ -523,7 +613,7 @@ $(function () {
       if ($('.toc-link').hasClass('active')) {
         const activePosition = $('.active').offset().top
         const sidebarScrollTop = $('#sidebar .sidebar-toc__content').scrollTop()
-        if (activePosition > (currentTop + $(window).height() - 100)) {
+        if (activePosition > currentTop + $(window).height() - 100) {
           $('#sidebar .sidebar-toc__content').scrollTop(sidebarScrollTop + 100)
         }
         if (activePosition < currentTop + 100) {
@@ -534,10 +624,77 @@ $(function () {
   }
 
   /**
- * Rightside
- */
+   * Rightside
+   */
 
   const $rightsideEle = $('#rightside')
+
+  // 复制到微信公众号
+  $rightsideEle.on('click', '#copy_to_wechat_mp', () => {
+    const solveHtml = () => {
+      const element = document.getElementById('article-container')
+
+      let html = element.innerHTML
+      html = html.replace(
+        /<mjx-container (class="inline.+?)<\/mjx-container>/g,
+        '<span $1</span>'
+      )
+      html = html.replace(/\s<span class="inline/g, '&nbsp;<span class="inline')
+      html = html.replace(/svg><\/span>\s/g, 'svg></span>&nbsp;')
+      html = html.replace(/mjx-container/g, 'section')
+      html = html.replace(/class="mjx-solid"/g, 'fill="none" stroke-width="70"')
+      html = html.replace(/<mjx-assistive-mml.+?<\/mjx-assistive-mml>/g, '')
+      console.log('GLOBAL_CONFIG.root', GLOBAL_CONFIG.root)
+      $.ajax({
+        url: GLOBAL_CONFIG.root + 'css/index.css',
+        dataType: 'text',
+        success: function (xmlResponse) {
+          const basicStyle = xmlResponse
+          let res = ''
+          try {
+            res = juice.inlineContent(html, basicStyle, {
+              inlinePseudoElements: true,
+              preserveImportant: true,
+            })
+            console.log('resres', res)
+          } catch (e) {
+            console.error('请检查 CSS 文件是否编写正确！', e)
+          }
+        },
+      })
+
+      return res
+    }
+
+    const copySafari = (text) => {
+      // 获取 input
+      let input = document.getElementById('copy-input')
+      if (!input) {
+        // input 不能用 CSS 隐藏，必须在页面内存在。
+        input = document.createElement('input')
+        input.id = 'copy-input'
+        input.style.position = 'absolute'
+        input.style.left = '-1000px'
+        input.style.zIndex = '-1000'
+        document.body.appendChild(input)
+      }
+      // 让 input 选中一个字符，无所谓那个字符
+      input.value = 'NOTHING'
+      input.setSelectionRange(0, 1)
+      input.focus()
+
+      // 复制触发
+      document.addEventListener('copy', function copyCall(e) {
+        e.preventDefault()
+        e.clipboardData.setData('text/html', text)
+        // e.clipboardData.setData('text/plain', text)
+        document.removeEventListener('copy', copyCall)
+      })
+      document.execCommand('copy')
+    }
+
+    copySafari(solveHtml())
+  })
 
   // read-mode
   $rightsideEle.on('click', '#readmode', function () {
@@ -547,15 +704,20 @@ $(function () {
   // Switch Between Light And Dark Mode
   if ($('#darkmode').length) {
     const switchReadMode = function () {
-      const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+      const nowMode =
+        document.documentElement.getAttribute('data-theme') === 'dark'
+          ? 'dark'
+          : 'light'
       if (nowMode === 'light') {
         activateDarkMode()
         saveToLocal.set('theme', 'dark', 2)
-        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+        GLOBAL_CONFIG.Snackbar !== undefined &&
+          btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
       } else {
         activateLightMode()
         saveToLocal.set('theme', 'light', 2)
-        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+        GLOBAL_CONFIG.Snackbar !== undefined &&
+          btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
       }
     }
 
@@ -563,21 +725,25 @@ $(function () {
       switchReadMode()
       typeof utterancesTheme === 'function' && utterancesTheme()
       typeof FB === 'object' && window.loadFBComment()
-      window.DISQUS && $('#disqus_thread').children().length && setTimeout(() => window.disqusReset(), 200)
+      window.DISQUS &&
+        $('#disqus_thread').children().length &&
+        setTimeout(() => window.disqusReset(), 200)
     })
   }
 
   // rightside 點擊設置 按鈕 展開
-  $rightsideEle.on('click', '#rightside_config', () => $('#rightside-config-hide').toggleClass('show'))
+  $rightsideEle.on('click', '#rightside_config', () =>
+    $('#rightside-config-hide').toggleClass('show')
+  )
 
   // Back to top
   $rightsideEle.on('click', '#go-up', () => btf.scrollToDest('body'))
 
   /**
- * menu
- * 側邊欄sub-menu 展開/收縮
- * 解決menus在觸摸屏下，滑動屏幕menus_item_child不消失的問題（手機hover的bug)
- */
+   * menu
+   * 側邊欄sub-menu 展開/收縮
+   * 解決menus在觸摸屏下，滑動屏幕menus_item_child不消失的問題（手機hover的bug)
+   */
   const clickFnOfSubMenu = function () {
     $('#mobile-sidebar-menus .expand').on('click', function () {
       $(this).parents('.menus_item').find('> .menus_item_child').slideToggle()
@@ -593,19 +759,28 @@ $(function () {
   }
 
   /**
- * 複製時加上版權信息
- */
+   * 複製時加上版權信息
+   */
   const addCopyright = () => {
     const copyright = GLOBAL_CONFIG.copyright
     document.body.oncopy = (e) => {
       e.preventDefault()
-      let textFont; const copyFont = window.getSelection(0).toString()
+      let textFont
+      const copyFont = window.getSelection(0).toString()
       if (copyFont.length > copyright.limitCount) {
-        textFont = copyFont + '\n' + '\n' + '\n' +
-        copyright.languages.author + '\n' +
-        copyright.languages.link + window.location.href + '\n' +
-        copyright.languages.source + '\n' +
-        copyright.languages.info
+        textFont =
+          copyFont +
+          '\n' +
+          '\n' +
+          '\n' +
+          copyright.languages.author +
+          '\n' +
+          copyright.languages.link +
+          window.location.href +
+          '\n' +
+          copyright.languages.source +
+          '\n' +
+          copyright.languages.info
       } else {
         textFont = copyFont
       }
@@ -618,19 +793,21 @@ $(function () {
   }
 
   /**
- * 網頁運行時間
- */
+   * 網頁運行時間
+   */
   const addRuntime = () => {
     const $runtimeCount = $('#runtimeshow')
     if ($runtimeCount.length) {
       const publishDate = $runtimeCount.attr('data-publishDate')
-      $runtimeCount.text(btf.diffDate(publishDate) + ' ' + GLOBAL_CONFIG.runtime)
+      $runtimeCount.text(
+        btf.diffDate(publishDate) + ' ' + GLOBAL_CONFIG.runtime
+      )
     }
   }
 
   /**
- * 最後一次更新時間
- */
+   * 最後一次更新時間
+   */
   const addLastPushDate = () => {
     const $lastPushDateItem = $('#last-push-date')
     if ($lastPushDateItem.length) {
@@ -641,18 +818,20 @@ $(function () {
   }
 
   /**
- * table overflow
- */
+   * table overflow
+   */
   const addTableWrap = function () {
-    const $table = $('#article-container table').not($('figure.highlight > table'))
+    const $table = $('#article-container table').not(
+      $('figure.highlight > table')
+    )
     $table.each(function () {
       $(this).wrap('<div class="table-wrap"></div>')
     })
   }
 
   /**
- * 百度推送
- */
+   * 百度推送
+   */
   const pushToBaidu = () => {
     const bp = document.createElement('script')
     const curProtocol = window.location.protocol.split(':')[0]
@@ -667,8 +846,8 @@ $(function () {
   }
 
   /**
- * tag-hide
- */
+   * tag-hide
+   */
   const clickFnOfTagHide = function () {
     const $hideInline = $('.hide-button')
     if ($hideInline.length) {
@@ -700,7 +879,9 @@ $(function () {
           const tabId = $this.attr('data-href')
           $tabContent.find('> .tab-item-content').removeClass('active')
           $tabContent.find(`> ${tabId}`).addClass('active')
-          const $isTabJustifiedGallery = $tabContent.find(tabId).find('.justified-gallery')
+          const $isTabJustifiedGallery = $tabContent
+            .find(tabId)
+            .find('.justified-gallery')
           if ($isTabJustifiedGallery.length > 0) {
             btf.initJustifiedGallery($isTabJustifiedGallery)
           }
@@ -712,7 +893,7 @@ $(function () {
       backToTopBtn.on('click', function () {
         btf.scrollToDest($(this).parents('.tabs'))
       })
-    }
+    },
   }
 
   const toggleCardCategory = function () {
@@ -734,7 +915,7 @@ $(function () {
         } else {
           $(this).css({
             display: 'block',
-            animation: 'tabshow .5s'
+            animation: 'tabshow .5s',
           })
         }
       })
@@ -749,7 +930,9 @@ $(function () {
     const data = GLOBAL_CONFIG.noticeOutdate
     var diffDay = btf.diffDate(GLOBAL_CONFIG_SITE.postUpdate)
     if (diffDay >= data.limitDay) {
-      const code = `<div class="post-outdate-notice">${data.messagePrev + ' ' + diffDay + ' ' + data.messageNext}</div>`
+      const code = `<div class="post-outdate-notice">${
+        data.messagePrev + ' ' + diffDay + ' ' + data.messageNext
+      }</div>`
       if (data.position === 'top') {
         $('#article-container').prepend(code)
       } else {
@@ -762,14 +945,18 @@ $(function () {
     window.lazyLoadInstance = new LazyLoad({
       elements_selector: 'img',
       threshold: 0,
-      data_src: 'lazy-src'
+      data_src: 'lazy-src',
     })
   }
 
   const unRefreshFn = function () {
     $(window).on('resize', function () {
       if (window.innerWidth < 768) adjustMenu(0)
-      else if ($('#sidebar').hasClass('tocOpenPc') && $('#nav').hasClass('fixed')) adjustMenu(1)
+      else if (
+        $('#sidebar').hasClass('tocOpenPc') &&
+        $('#nav').hasClass('fixed')
+      )
+        adjustMenu(1)
       else adjustMenu(2)
     })
 
