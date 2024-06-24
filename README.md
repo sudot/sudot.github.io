@@ -118,20 +118,26 @@ npm install
   ![](images/replace-images-link-good.png)  
 
 ### 添加文章复制到其他平台发布的功能
+
 > 此功能利用 `juice` 库，可以将文章复制为需要的格式，
-> 但是 `juice` 不支持浏览器中直接运行，
-> 所以安装 `browserify` 工具将 `juice` 转换为浏览器可用的 js 文件
+> 但是 `juice` 和 `cheerio` 不支持浏览器中直接运行，
+> 所以安装 `browserify` 工具将 `juice` 和 `cheerio` 转换为浏览器可用的 js 文件
 
 
 1. 安装 browserify：`npm i browserify`
 
-2. 安装 juice：`npm i juice`
+2. 将 juice 打包成浏览器可识别的 js 文件：`npx browserify -r juice -s juice > themes\Butterfly\source\js\third-party\juice.min.js`
 
-3. 将 juice 打包成浏览器可识别的 js 文件：`npx browserify -r juice -s juice > themes\Butterfly\source\js\third-party\juice.min.js`
+3. 将 cheerio 打包成浏览器可识别的 js 文件：`npx browserify -r cheerio -s cheerio > themes\Butterfly\source\js\third-party\cheerio.min.js`
 
-4. `\_config.butterfly.yml` 和 `themes\Butterfly\_config.yml` 中增加 `CDN: juice: /js/third-party/juice.min.js`
+4. `themes\Butterfly\_config.yml` 中增加 `CDN: juice: /js/third-party/juice.min.js`
+```yaml
+CDN:
+  juice: /js/third-party/juice.min.js
+  cheerio: /js/third-party/cheerio.min.js
+```
 
-5. `\themes\Butterfly\layout\includes\additional-js.pug` 增加 `script(src=url_for(theme.CDN.juice))`
+5. `\themes\Butterfly\layout\includes\additional-js.pug` 增加 `script(src=url_for(theme.CDN.juice))` 和 `script(src=url_for(theme.CDN.cheerio))`
 
 6. `themes/Butterfly/layout/includes/rightside.pug` 中增加复制按钮 `button#copy_to_wechat_mp(type="button" title=_p("rightside.copy_to_wechat_mp"))`
 

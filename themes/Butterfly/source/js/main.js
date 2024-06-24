@@ -632,38 +632,16 @@ $(function () {
   // 复制到微信公众号
   $rightsideEle.on('click', '#copy_to_wechat_mp', () => {
     const solveHtml = () => {
-      const element = document.getElementById('article-container')
-
-      let html = element.innerHTML
-      html = html.replace(
-        /<mjx-container (class="inline.+?)<\/mjx-container>/g,
-        '<span $1</span>'
-      )
-      html = html.replace(/\s<span class="inline/g, '&nbsp;<span class="inline')
-      html = html.replace(/svg><\/span>\s/g, 'svg></span>&nbsp;')
-      html = html.replace(/mjx-container/g, 'section')
-      html = html.replace(/class="mjx-solid"/g, 'fill="none" stroke-width="70"')
-      html = html.replace(/<mjx-assistive-mml.+?<\/mjx-assistive-mml>/g, '')
-
       return new Promise((resolve, reject) => {
+        // 获取页面所有的样式信息
         const cssReqList = []
         $('link[rel="stylesheet"]').each((_, dom) => {
           const req = new Promise((resolve, reject) =>
             $.ajax({
               url: $(dom).attr('href'),
               dataType: 'text',
-              success: function (xmlResponse) {
-                const basicStyle = xmlResponse
-                try {
-                  const res = juice.inlineContent(html, basicStyle, {
-                    inlinePseudoElements: true,
-                    preserveImportant: true,
-                  })
-                  resolve(res)
-                } catch (e) {
-                  console.error('请检查 CSS 文件是否编写正确！', e)
-                  reject('请检查 CSS 文件是否编写正确！')
-                }
+              success: function (style) {
+                resolve(style)
               },
               error: function (e) {
                 console.error('CSS 样式文件请求失败！', e)
@@ -673,14 +651,29 @@ $(function () {
           )
           cssReqList.push(req)
         })
+        // 整合页面所有样式信息
         Promise.all(cssReqList)
-          .then((cssArray) => {
+          .then((stylesheet) => {
+            let css = stylesheet.join('\n')
+            // const cssVarList = Array.from(
+            //   new Set(
+            //     [...css.matchAll(/var\((.*?)[,\)]/g)].map((arr) => arr[1])
+            //   )
+            // )
             try {
-              const res = juice.inlineContent(cssArray.join('\n'), {
+              // 对全页面生成嵌入式样式html代码
+              let html = document.querySelector('html').outerHTML
+              html = juice.inlineContent(html, css, {
                 inlinePseudoElements: true,
                 preserveImportant: true,
               })
-              resolve(res)
+              // 然后提取出所需要的部分html代码
+              // （如果只用这个局部代码去生成，会导致很多样式应用不了，
+              // 因为很多样式是有应用层级要求的，单独提取就缺少了层级样式的应用）
+              const $ = cheerio.load(html)
+              // 移除代码块上的代码类型和复制模块，字体图标无法显示
+              $('#article-container div.highlight-tools').remove()
+              resolve($('#article-container').html())
             } catch (e) {
               console.error('请检查 CSS 文件是否编写正确！', e)
               reject('请检查 CSS 文件是否编写正确！')

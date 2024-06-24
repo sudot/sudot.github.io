@@ -814,6 +814,7 @@ CDN:
   main_css: /css/index.css
   jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
   juice: /js/third-party/juice.min.js
+  cheerio: /js/third-party/cheerio.min.js
   main: /js/main.js
   utils: /js/utils.js
 
