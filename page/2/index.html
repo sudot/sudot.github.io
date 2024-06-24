@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>面朝大海春暖花开 - sudot</title><meta name="description" content="此人很懒, 啥也没写"><meta name="keywords" content="sudot,java,dart,flutter,js,JavaScript,全栈,程序员,博客,个人笔记,心得分享,案例分享"><meta name="author" content="sudot"><meta name="copyright" content="sudot"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://sudot.net/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="面朝大海春暖花开"><meta property="og:url" content="https://sudot.net/page/2/"><meta property="og:site_name" content="面朝大海春暖花开"><meta property="og:description" content="此人很懒, 啥也没写"><meta property="og:image" content="https://sudot.net/images/avatar.png"><meta property="article:published_time" content="2024-06-24T08:14:17.730Z"><meta property="article:modified_time" content="2024-06-24T08:14:17.730Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?010a6fa86a261f958347c6ceedc94711";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-146420494-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-146420494-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.4.2',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime: '',
+  date_suffix: {"one_hour":"刚刚","hours":"小时前","day":"天前"},
+  copyright: undefined,
+  ClickShowText: {"text":"做,一,个,幸,福,的,人,喂,马,劈,柴,周,游,世,界","fontSize":"18px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+    },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2024-06-24 16:14 16:14:17'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/default_top.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">面朝大海春暖花开</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">面朝大海春暖花开</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/sudot" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/37437/" title="REPT">     <img class="post_bg" data-lazy-src="/p/37437/20191012232016.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="REPT"></a></div><div class="recent-post-info"><a class="article-title" href="/p/37437/" title="REPT">REPT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-21T09:55:16.000Z" title="发表于 2019-08-21 17:55 17:55:16">2019-08-21 17:55</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/excel/">excel</a></span></div><div class="content">
+
+说明将文本重复一定次数。 使用 REPT 来在单元格中填充文本字符串的大量实例。
+语法1REPT(text, number_times)
+
+REPT 函数语法具有下列参数：
+
+Text    必需。 需要重复显示的文本。
+Number_times    必需。 用于指定文本重复次数的正数。
+
+注意事项
+如果 number_times 为 0（零），则 REPT 返回 “”（空文本）。
+如果 number_times 不是整数，将被截尾取整。
+REPT 函数结果的长度不能超过 32,767 个字符，否则 REPT 返回 #VALUE!。
+
+示例复制下表中的示例数据，然后将其粘贴进新的 Excel 工作表的 A1 单元格中。要使公式显示结果，请选中它们，按 F2，然后按 Enter。如果需要，可调整列宽以查看所有数据。
+
+
+
+农产品
+计数
+
+
+
+苹果
+32
+
+
+橙子
+54
+
+
+桃子
+75
+
+
+苹果
+86
+
+
+
+
+
+公式
+说明
+结果
+
+
+
+=REPT(&quot;*-&quot;, 3)
+显示星号和短划线 (*-) 3 次。
+*-*-*-
+
+
+=REPT(&quot;-&quot;,10 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/58441/" title="MATCH">     <img class="post_bg" data-lazy-src="/p/58441/20191012232004.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MATCH"></a></div><div class="recent-post-info"><a class="article-title" href="/p/58441/" title="MATCH">MATCH</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-21T09:54:51.000Z" title="发表于 2019-08-21 17:54 17:54:51">2019-08-21 17:54</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/excel/">excel</a></span></div><div class="content">
+
+说明Match函数是Excel中使用较为广泛的一个函数。其主要作用是：在“范围”单元格中搜索特定的项，然后返回该项在此区域中的相对位置。
+通俗的将：MATCH函数返回指定值在数组中的位置，如果在数组中没有找到该值则返回#N/A。
+例如：如果A1：A3区域中包含值5,15和28，那么公式=MATCH(15,A1:A3,0)返回数字2，因为15是该区域中的第二项。
+MATCH函数返回指定值在数组中的位置，通常和其它函数配合使用，如INDEX函数、VLOOKUP函数等。
+语法1MATCH(lookup_value, lookup_array, [match_type])。
+
+
+lookup_value 必需。要在 lookup_array 中匹配的值。
+
+lookup_value 参数可以为值（数字、文本或逻辑值）或对数字、文本或逻辑值的单元格引用。
+
+lookup_array 必需。要搜索的单元格区域。
+
+match_type 可选。数字 -1、0 或 1。match_type 参数指定 Excel 如何将lookup_value 与 lookup_array 中的值匹配。此参数的默认 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/28049/" title="COUNTIF">     <img class="post_bg" data-lazy-src="/p/28049/20191012232033.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COUNTIF"></a></div><div class="recent-post-info"><a class="article-title" href="/p/28049/" title="COUNTIF">COUNTIF</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-21T09:54:19.000Z" title="发表于 2019-08-21 17:54 17:54:19">2019-08-21 17:54</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/excel/">excel</a></span></div><div class="content">
+
+说明COUNTIF 是一个统计函数，用于统计满足某个条件的单元格的数量；例如，统计特定城市在客户列表中出现的次数。
+语法1=COUNTIF(要检查哪些区域? 要查找哪些内容?)
+
+示例
+=COUNTIF(A2:A5,”London”)
+=COUNTIF(A2:A5,A4)
+
+
+注意：如果要使公式范围在拖动以后不变化，可以使用绝对值形式。如=COUNTIF($A$2:$A$5,A4)，而不是=COUNTIF(A2:A5,A4)
+
+
+
+
+农产品
+计数
+
+
+
+苹果
+32
+
+
+橙子
+54
+
+
+桃子
+75
+
+
+苹果
+86
+
+
+
+
+
+公式
+说明
+
+
+
+=COUNTIF(A2:A5,”苹果”)
+统计单元格 A2 到 A5 中包含“苹果”的单元格的数量。 结果为 2。
+
+
+=COUNTIF(A2:A5,A4)
+统计单元格 A2 到 A5 中包含“桃子”（A4 中的值）的单元格的数量。 结果为 1。
+
+
+=COUNTIF(A2:A5,A2)+COUNTIF(A2:A5,A3)
+计算单元格 A2 到 A5 中苹果（A2 中的值）和橙子（A3 中的值）的数量。 结果为 3。 此公式两次使用 COUNTI ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/50408/" title="AOP方式实现的事物后置处理">     <img class="post_bg" data-lazy-src="/p/50408/20200112231826.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AOP方式实现的事物后置处理"></a></div><div class="recent-post-info"><a class="article-title" href="/p/50408/" title="AOP方式实现的事物后置处理">AOP方式实现的事物后置处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-20T02:02:05.000Z" title="发表于 2019-08-20 10:02 10:02:05">2019-08-20 10:02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B/">真实案例</a></span></div><div class="content">场景客户在执行了还款操作后，系统会记录交易流水、更新客户还款计划、更新已还金额和未还金额，这些数据都是交易数据，会在本次交易中立刻计算。但是还有一些非交易数据（如：逾期天数，最新逾期时间，逾期等级），不是在交易动作里实时计算的，而是按照计划的频次批量计算和更新（当时更新时点和频次是每晚一次）。直接造成的影响是客户投诉，因为催收人员需要等到第二天才能知道客户是否还款，经常打催收电话给客户时客户已经还款了。
+目标在不降低原交易体验的情况下降低数据延时。最优：在不影响原交易体验情况下做到实时更新次优：在不影响原交易体验情况下做到一小时内更新
+实现方式在一番交流和纠结后，决定使用发布订阅模式：交易完成后发布一个交易完成通知，需要处理的任务订阅通知，并在收到通知后执行。
+优点：
+
+代码入侵程度小，或无需入侵
+对原有交易体验，逻辑处理时长，事物时长影响几乎为零，因为仅将消息发布出去而已。
+时效性高，虽然是准实时处理，但几乎可以认为是实时的处理。
+
+缺点：
+
+业务相关性相较之前更紧密
+需要维护一个消息队列（此项目截止目前未使用消息队列）
+
+具体执行一开始执行就开始争论一个问题了：
+
+在交易执行完成后 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/50570/" title="SVN迁移到Git(整理)">     <img class="post_bg" data-lazy-src="/p/50570/20191103133014001.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SVN迁移到Git(整理)"></a></div><div class="recent-post-info"><a class="article-title" href="/p/50570/" title="SVN迁移到Git(整理)">SVN迁移到Git(整理)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-13T12:17:00.000Z" title="发表于 2019-08-13 20:17 20:17:00">2019-08-13 20:17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/git/">git</a></span></div><div class="content">
+创建用户映射导入产生的第一个问题就是作者信息。 在 Subversion 中，每一个人提交时都需要在系统中有一个用户，它会被记录在提交信息内。 在之前章节的例子中几个地方显示了 schacon，比如 blame 输出与 git svn log。 如果想要将上面的 Subversion 用户映射到一个更好的 Git 作者数据中，你需要一个 Subversion 用户到 Git 用户的映射。 创建一个 users.txt 的文件包含像下面这种格式的映射：
+12zhangs = 张三 &lt;zhangs@email.address.com&gt;lis = 李四 &lt;lis@email.address.com&gt;
+
+
+如果上面的文件中有用户缺失，后面的 SVN 命令会输出如下错误并停止。
+1Author: xxx not defined in users.txt file
+不过你可以更新用户映射然后接着再来（类似断点续传）。
+修改好用户后，需要进入clone的目录并使用以下命令继续拉取：
+1git fetch
+
+否则会出现如下错误信息：
+123$ git svn clone -- ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/3551/" title="Git常用命令整理">     <img class="post_bg" data-lazy-src="/p/3551/20191103133014001.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git常用命令整理"></a></div><div class="recent-post-info"><a class="article-title" href="/p/3551/" title="Git常用命令整理">Git常用命令整理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-13T12:14:00.000Z" title="发表于 2019-08-13 20:14 20:14:00">2019-08-13 20:14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/git/">git</a></span></div><div class="content">
+
+
+
+git log，git reflog，git diff一般都在图形工具中使用，所以暂时未列出
+
+
+执行所有的git命令，都可以使用-C &lt;path&gt;指定工作目录。如：git -C /home init demo等同于在/home目录下执行git init demo命令
+
+init - 初始化仓库123git init &lt;name&gt;           # 在当前目录下新建一个本地仓库git init &lt;path&gt;           # 在指定目录下新建一个本地仓库，仓库名称为path的最后一段git -C &lt;path&gt; init &lt;name&gt; # 在&lt;path&gt;目录下新建一个本地仓库
+
+config - 信息配置12git -C &lt;path&gt; config user.name &quot;&lt;你的姓名&gt;&quot;  # 设置仓库提交人姓名git -C &lt;path&gt; config user.email &quot;&lt;你的邮箱&gt;&quot; # 设置仓库提交人邮 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/24587/" title="Git安装">     <img class="post_bg" data-lazy-src="/p/24587/20191103133014001.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git安装"></a></div><div class="recent-post-info"><a class="article-title" href="/p/24587/" title="Git安装">Git安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-13T12:03:00.000Z" title="发表于 2019-08-13 20:03 20:03:00">2019-08-13 20:03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/git/">git</a></span></div><div class="content">
+
+安装包windows/mac:进入 https://git-scm.com/downloads下载相应版本双击安装即可
+linux（centos）：
+1yum install -y git
+
+linux（其它）：进入以下网站,根据不同版本提示安装https://git-scm.com/download/linux
+源码安装下载到以下地址下载linux通用安装包https://www.kernel.org/pub/software/scm/git/
+完整安装包地址如下https://www.kernel.org/pub/software/scm/git/git-2.14.1.tar.gz 
+解压并编译安装123456tar zxf git-2.14.1.tar.gzmv git-2.14.1 git-2.14.1-srccd git-2.14.1-src# --prefix 指定安装位置./configure --prefix=/home/soft/git-2.14.1make &amp;&amp; make install
+
+配置环境变量1234# 打开环境变量配置文件vim /e ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">sudot</div><div class="author-info__description">此人很懒, 啥也没写</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length_num">17</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sudot"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/sudot" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">感谢访问本站，若喜欢可以加入书签哦 ^_^</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/48342/" title="Java开发入坑前端指南"><img data-lazy-src="/p/48342/20191125203657.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java开发入坑前端指南"/></a><div class="content"><a class="title" href="/p/48342/" title="Java开发入坑前端指南">Java开发入坑前端指南</a><time datetime="2019-11-15T03:41:39.000Z" title="发表于 2019-11-15 11:41 11:41:39">2019-11-15 11:41</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/54558/" title="记2019年1024节日生产事故"><img data-lazy-src="/p/54558/image-20191024230146118.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记2019年1024节日生产事故"/></a><div class="content"><a class="title" href="/p/54558/" title="记2019年1024节日生产事故">记2019年1024节日生产事故</a><time datetime="2019-10-25T15:09:34.000Z" title="发表于 2019-10-25 23:09 23:09:34">2019-10-25 23:09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/62931/" title="语法和规范 - Spock单元测试系列教程"><img data-lazy-src="/p/62931/CwFPZJHjqe1dt3K.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="语法和规范 - Spock单元测试系列教程"/></a><div class="content"><a class="title" href="/p/62931/" title="语法和规范 - Spock单元测试系列教程">语法和规范 - Spock单元测试系列教程</a><time datetime="2019-10-21T13:47:04.000Z" title="发表于 2019-10-21 21:47 21:47:04">2019-10-21 21:47</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/27870/" title="国内图床服务对比"><img data-lazy-src="/p/27870/20191009165852.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国内图床服务对比"/></a><div class="content"><a class="title" href="/p/27870/" title="国内图床服务对比">国内图床服务对比</a><time datetime="2019-10-07T14:56:33.000Z" title="发表于 2019-10-07 22:56 22:56:33">2019-10-07 22:56</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/13330/" title="Markdown Nice-微信公众号排版神器"><img data-lazy-src="/p/13330/20191012231650.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown Nice-微信公众号排版神器"/></a><div class="content"><a class="title" href="/p/13330/" title="Markdown Nice-微信公众号排版神器">Markdown Nice-微信公众号排版神器</a><time datetime="2019-10-03T03:34:04.000Z" title="发表于 2019-10-03 11:34 11:34:04">2019-10-03 11:34</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/excel/"><span class="card-category-list-name">excel</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">4</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/Spock/"><span class="card-category-list-name">Spock</span><span class="card-category-list-count">3</span></a></li></ul><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">日常工具</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B/"><span class="card-category-list-name">真实案例</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">项目管理</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">十一月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">9</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-24T08:14:17.561Z"></div></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By sudot</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"/><span>渝ICP备15006197号</span></a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/third-party/juice.min.js"></script><script src="/js/third-party/cheerio.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script src="/js/third-party/ClickShowText.js" async="async"></script></div></body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>面朝大海春暖花开 - sudot</title><meta name="description" content="此人很懒, 啥也没写"><meta name="keywords" content="sudot,java,dart,flutter,js,JavaScript,全栈,程序员,博客,个人笔记,心得分享,案例分享"><meta name="author" content="sudot"><meta name="copyright" content="sudot"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://sudot.net/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="面朝大海春暖花开"><meta property="og:url" content="https://sudot.net/"><meta property="og:site_name" content="面朝大海春暖花开"><meta property="og:description" content="此人很懒, 啥也没写"><meta property="og:image" content="https://sudot.net/images/avatar.png"><meta property="article:published_time" content="2024-06-24T08:14:17.725Z"><meta property="article:modified_time" content="2024-06-24T08:14:17.725Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?010a6fa86a261f958347c6ceedc94711";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-146420494-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-146420494-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.4.2',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime: '',
+  date_suffix: {"one_hour":"刚刚","hours":"小时前","day":"天前"},
+  copyright: undefined,
+  ClickShowText: {"text":"做,一,个,幸,福,的,人,喂,马,劈,柴,周,游,世,界","fontSize":"18px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+    },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2024-06-24 16:14 16:14:17'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/default_top.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">面朝大海春暖花开</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">面朝大海春暖花开</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/sudot" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/48342/" title="Java开发入坑前端指南">     <img class="post_bg" data-lazy-src="/p/48342/20191125203657.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java开发入坑前端指南"></a></div><div class="recent-post-info"><a class="article-title" href="/p/48342/" title="Java开发入坑前端指南">Java开发入坑前端指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-11-15T03:41:39.000Z" title="发表于 2019-11-15 11:41 11:41:39">2019-11-15 11:41</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">前端发展史
+1990年，那是一个冬天，有一位老人在欧洲核子研究中心织了一张网，神话般的诞生了万维网。
+
+很久很久以前（1980 年），在欧洲核子研究中心工作的一位英国物理学家「蒂姆·伯纳斯-李」为了让研究人员能够分享和更新他们的研究结果，他与「罗勃·卡力奥」一起建立了一个叫做 ENQUIRE [ɪn’kwaɪə(r)] 的原型系统，这就是万维网的前身。后来他想将这种方式嫁接到因特网上，1990 年圣诞节那天编写出了全球首个网页浏览器 WorldWideWeb（同时也是网页编辑器，后来为了避免与万维网混淆而改名为 Nexus [‘neksəs]）和网页服务器。这套服务器在欧洲核子研究中心于 1991 年 8 月 6 日上线，这就是全球第一个万维网网站。
+
+HTML（超文本标记语言）、HTTP（超文本传输协议）以及 URI（统一资源标志符，也就是在浏览器输入的地址规则）都是这位大佬发明的。
+
+WorldWideWeb 的模拟界面如下：
+
+
+这个浏览器有以下功能：
+
+显示文本、图片
+打开超链接
+编辑所示内容
+
+点击此链接可以查看此网页版模拟界面：https://worldwideweb.ce ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/54558/" title="记2019年1024节日生产事故">     <img class="post_bg" data-lazy-src="/p/54558/image-20191024230146118.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记2019年1024节日生产事故"></a></div><div class="recent-post-info"><a class="article-title" href="/p/54558/" title="记2019年1024节日生产事故">记2019年1024节日生产事故</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-25T15:09:34.000Z" title="发表于 2019-10-25 23:09 23:09:34">2019-10-25 23:09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B/">真实案例</a></span></div><div class="content">在一年一度的 1024 程序员节这一天，怀着激动而又憧憬的心情来到公司，因为万科A 这只房地产龙头股已经跌到26.78 元一股了（下方附上截止当日的日K图），价格已经低于下图上显示的所有日均线，恰好今天又是周四，股市又会迎来每周一大跌的日子，下午就可以开始第一轮买入了。
+
+某位股市大佬统计了 2016年1月1日到 2019年5月23日沪深300指数和中证500指数，验证了周四下跌概率会上升，涨幅更小；跌幅更大。详见此文：发现每周四定投可以赚得更多。
+
+
+
+事故现象开盘不久。。。9 点 43 分，催收部门的小伙伴发来急电：催收系统的数据（生产环境），身份证和姓名消失啦～
+what the f*cking ？
+
+
+事件背景每天早上 9:40 分，催收部门分配案件的小伙伴会在催收系统查询到当天新增的催收数据。
+然后将新增的催收数据分配给电催专员，电催专员则对分配到的数据进行电话催收。
+催收系统的数据从何而来？
+
+核算系统在每天早上 7:30 加工并生成截止今日 00:00 前的逾期数据，因为早上 6:00 - 7:00 是银行和机构推送还款信息最多的时间段，业内称为回盘。
+数据处理系统在核算 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/62931/" title="语法和规范 - Spock单元测试系列教程">     <img class="post_bg" data-lazy-src="/p/62931/CwFPZJHjqe1dt3K.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="语法和规范 - Spock单元测试系列教程"></a></div><div class="recent-post-info"><a class="article-title" href="/p/62931/" title="语法和规范 - Spock单元测试系列教程">语法和规范 - Spock单元测试系列教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-21T13:47:04.000Z" title="发表于 2019-10-21 21:47 21:47:04">2019-10-21 21:47</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/Spock/">Spock</a></span></div><div class="content">
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/27870/" title="国内图床服务对比">     <img class="post_bg" data-lazy-src="/p/27870/20191009165852.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国内图床服务对比"></a></div><div class="recent-post-info"><a class="article-title" href="/p/27870/" title="国内图床服务对比">国内图床服务对比</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-07T14:56:33.000Z" title="发表于 2019-10-07 22:56 22:56:33">2019-10-07 22:56</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/">日常工具</a></span></div><div class="content">前两篇文章都说到了图床：
+
+PicGo-图片上传、管理新体验
+
+Markdown Nice-微信公众号排版神器
+
+
+那么图床到底是一个什么样的存在，存在的作用是什么？而现在国内又有很多云服务商，到底应该如何选择呢？接下来我给大家大致介绍一下。
+图床是什么图床就是专门用来存放图片，同时可以通过一个 http 链接直接访问图片的网络存储空间。
+因为图片一般都比较小，而且需要直接在浏览器访问，所以一般在云服务商选择对象存储这类产品来充当图床功能。
+有了图床后，就可以上传、下载、删除、浏览图片。
+图床如何使用选择一家云服务商，然后注册账号并进行实名认证（因为国内监管较严，所以每一家都会要求实名认证），再开通其对象存储产品，就可以直接在服务商的控制台界面对图片进行管理啦。
+
+在实际使用时，为了更快的速度和更便宜的价格需要搭配 CDN 使用。
+（对，没错！多一个 CDN 反而费用更便宜，这是怎么回事呢？继续看后文就能明白了。）
+
+既然如此，那么剩下的问题就是怎么选择服务商了。
+服务商选择为了后面价格比较时，能明白 CDN 回流和外网下行流量分别是什么东西，先拿出来解释一下。
+借用腾讯云 COS 的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/13330/" title="Markdown Nice-微信公众号排版神器">     <img class="post_bg" data-lazy-src="/p/13330/20191012231650.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown Nice-微信公众号排版神器"></a></div><div class="recent-post-info"><a class="article-title" href="/p/13330/" title="Markdown Nice-微信公众号排版神器">Markdown Nice-微信公众号排版神器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-03T03:34:04.000Z" title="发表于 2019-10-03 11:34 11:34:04">2019-10-03 11:34</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/">日常工具</a></span></div><div class="content">越来越多小伙伴开始写博客，而且是写好一篇后发布到各大平台，比如简书、掘金、V2EX、CSDN，还有微信公众号等。这么多平台每次发布都要针对性的写一遍的话，那得多浪费生命啊。
+就我目前来说，每次写作需要发布到我自己的博客，还要在微信公众号发布，而我的博客是写 markdown 文件然后转成静态文件部署，所以每次都需要把用 markdown 写好的内容转成微信公众号的富文本格式。转换过程要处理排版，还要上传图片，总之繁琐的不行，如果用过或还在用这种方式写内容的小伙伴应该深有体会。
+而现在，我不用自己去处理这样的操作了，使用 Markdown Nice 来帮我处理 markdown 到富文本转换的过程。而且可以直接在编辑的过程上传图片到阿里云和七牛云图床，若没有自己的图床，还可以使用 mdnice 图床和 sm.ms 图床，解决 markdown 插入图片的问题。
+
+不建议使用 sm.ms 图床，微信公众号下载这个图床的图片很少成功。
+
+同类产品：
+
+WeChat-Format
+
+这款产品也很好用，但是支持的主题很少，而且不能直接自定义主题。如果需要个性化主题和排版的布局，需要 fork 其 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/51300/" title="PicGo-图片上传、管理新体验">     <img class="post_bg" data-lazy-src="/p/51300/20191012232337.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PicGo-图片上传、管理新体验"></a></div><div class="recent-post-info"><a class="article-title" href="/p/51300/" title="PicGo-图片上传、管理新体验">PicGo-图片上传、管理新体验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-29T09:57:11.000Z" title="发表于 2019-09-29 17:57 17:57:11">2019-09-29 17:57</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/">日常工具</a></span></div><div class="content">PicGo 是一个方便上传和管理图片的工具，主要解决在 Markdown 插入可移植图片的复杂操作。基于 electron-vue 平台开发，熟悉 JavaScript 的同学可以直接上手定制开发。
+
+
+优点：
+
+开源且免费，全平台支持
+支持众多图床服务商和云文件存储服务
+内置 GitHub 作为图床的支持
+若现有服务都不能满足，可自己定制开发符合要求的上传服务插件
+可以管理上传过的图片，可删除和修改
+
+同类产品
+
+iPic
+
+
+很多人都知道，真是好用，非常好用。
+
+不足之处：
+
+只能在 mac 下使用
+免费用户只能上传到新浪的免费图床，也就是发微博里图片存放的地方
+即使是收费用户，也不支持自定义图床，不能管理上传的图片
+
+
+MPic：
+
+不足之处：
+
+只能在 Windows 下使用
+只能使用七牛云作为图床，8 月新增了阿里云 OSS
+而且两种图床方式是两个不同的客户端
+
+开箱即用PicGo 下载后即可使用，默认使用 SM.MS 图床
+此图床也是免费使用，而且不限流，大家如果没有更满意的图床服务可以使用这个。
+
+将带有此图床的图文文章粘贴到微信图文编辑器中时，大部分图片都会上传失败。
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/52635/" title="永恒的 Hello Word - Spock单元测试系列教程">     <img class="post_bg" data-lazy-src="/p/52635/lsfL8425YmaqzHg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="永恒的 Hello Word - Spock单元测试系列教程"></a></div><div class="recent-post-info"><a class="article-title" href="/p/52635/" title="永恒的 Hello Word - Spock单元测试系列教程">永恒的 Hello Word - Spock单元测试系列教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-28T15:35:15.000Z" title="发表于 2019-09-28 23:35 23:35:15">2019-09-28 23:35</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/Spock/">Spock</a></span></div><div class="content">快速体验Spock 官网提供了 Web 控制台，可以直接在此控制台页面体验和尝试，点击 Run Script 运行。
+
+
+本地运行
+准备好开发环境，开发工具不限，只要能支持 gradle 和 maven 构建工具都可以，或者无需开发工具，使用构建工具命令行运行。
+
+新建一个 gradle 或 maven 项目。
+
+gradle
+
+build.gradle 文件内容如下：
+
+
+123456789101112131415161718192021222324252627282930313233343536373839404142plugins &#123;    id &#x27;java&#x27;    id &#x27;groovy&#x27;&#125;group &#x27;net.sudot&#x27;version &#x27;1.0-SNAPSHOT&#x27;sourceCompatibility = 1.8targetCompatibility = 1.8repositories &#123;    maven &#123; url &#x27;https://maven ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/42681/" title="Spock单元测试系列教程">     <img class="post_bg" data-lazy-src="/p/42681/CwFPZJHjqe1dt3K.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spock单元测试系列教程"></a></div><div class="recent-post-info"><a class="article-title" href="/p/42681/" title="Spock单元测试系列教程">Spock单元测试系列教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-28T03:34:57.000Z" title="发表于 2019-09-28 11:34 11:34:57">2019-09-28 11:34</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/Spock/">Spock</a></span></div><div class="content">
+Spock是一个用于Java和Groovy应用程序的测试和规范框架。使它从人群中脱颖而出的是它美丽而富有表现力的规范语言。由于它的JUnit运行器，Spock可以兼容大多数ide、构建工具和持续集成服务器。Spock的灵感来自JUnit、jMock、RSpec、Groovy、Scala、Vulcans和其他迷人的生命形式。
+
+以上话术引用自Spock官网
+一句话概括
+使用 Groovy 语言编写的支持 Mock 的单元测试框架，比 Mockito 和 PowerMock 编写的代码更简短且更适合人阅读。
+不足之处
+
+Java 的静态方法 Mock 效果不理想，截止目前（2019-09-28）要 Mock Java的静态方法还需要借助 PowerMock。
+
+因为不运行 spring 环境，所以 mybatis、springjdbc、hibernate 等查询数据库操作测试成本很高，需要自己处理运行时环境。
+
+
+上手难度
+☆☆☆☆☆：没有难度
+开始使用
+永恒的 Hello Word
+语法和规范
+
+能力进阶
+复杂案例
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/p/44399/" title="gradle5删除左移符号支持导致无法编译">     <img class="post_bg" data-lazy-src="/p/44399/20191012232117.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gradle5删除左移符号支持导致无法编译"></a></div><div class="recent-post-info"><a class="article-title" href="/p/44399/" title="gradle5删除左移符号支持导致无法编译">gradle5删除左移符号支持导致无法编译</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-22T08:43:45.000Z" title="发表于 2019-08-22 16:43 16:43:45">2019-08-22 16:43</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a></span></div><div class="content">错误现象123456789101112131415FAILURE: Build failed with an exception.* Where:Script &#x27;http://sc.dev.xxxx.com:8080/script/gateway.gradle&#x27; line: 87* What went wrong:A problem occurred evaluating script.&gt; Could not find method leftShift() for arguments [gateway_3jdkdl89l6uef4r948spaebo1$_run_closure12@13b89f08] on task &#x27;:replaceBuildInfo&#x27; of type org.gradle.api.DefaultTask.* Try:Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/p/26933/" title="VLOOKUP">     <img class="post_bg" data-lazy-src="/p/26933/20191012231946.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VLOOKUP"></a></div><div class="recent-post-info"><a class="article-title" href="/p/26933/" title="VLOOKUP">VLOOKUP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-08-21T09:55:34.000Z" title="发表于 2019-08-21 17:55 17:55:34">2019-08-21 17:55</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/excel/">excel</a></span></div><div class="content">
+
+说明在这一最简单的形式中，VLOOKUP 函数表示：
+1=VLOOKUP(要查找的值, 要在其中查找值的区域, 区域中包含返回值的列号, 精确匹配或近似匹配 – 指定为 0/FALSE or 1/TRUE)。
+技术细节使用 VLOOKUP 函数在表中查找值。
+语法1VLOOKUP (lookup_value, table_array, col_index_num, [range_lookup])
+
+
+
+
+参数名称
+说明
+
+
+
+lookup_value   （必需参数）
+要查找的值。 要查找的值必须位于 table-array 中指定的单元格区域的第一列中。例如，如果 table-array 指定的单元格为 B2:D7，则 lookup_value 必须位于列 B 中。请参见下图。 Lookup_value 可以是值，也可以是单元格引用。
+
+
+table_array   （必需参数）
+VLOOKUP 在其中搜索 lookup_value 和返回值的单元格区域。该单元格区域中的第一列必须包含 lookup_value（例如，下图中的“姓氏”）。 此单元格区域中还需要包含您要查找的返回值 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">sudot</div><div class="author-info__description">此人很懒, 啥也没写</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length_num">17</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sudot"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/sudot" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">感谢访问本站，若喜欢可以加入书签哦 ^_^</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/48342/" title="Java开发入坑前端指南"><img data-lazy-src="/p/48342/20191125203657.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java开发入坑前端指南"/></a><div class="content"><a class="title" href="/p/48342/" title="Java开发入坑前端指南">Java开发入坑前端指南</a><time datetime="2019-11-15T03:41:39.000Z" title="发表于 2019-11-15 11:41 11:41:39">2019-11-15 11:41</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/54558/" title="记2019年1024节日生产事故"><img data-lazy-src="/p/54558/image-20191024230146118.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记2019年1024节日生产事故"/></a><div class="content"><a class="title" href="/p/54558/" title="记2019年1024节日生产事故">记2019年1024节日生产事故</a><time datetime="2019-10-25T15:09:34.000Z" title="发表于 2019-10-25 23:09 23:09:34">2019-10-25 23:09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/62931/" title="语法和规范 - Spock单元测试系列教程"><img data-lazy-src="/p/62931/CwFPZJHjqe1dt3K.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="语法和规范 - Spock单元测试系列教程"/></a><div class="content"><a class="title" href="/p/62931/" title="语法和规范 - Spock单元测试系列教程">语法和规范 - Spock单元测试系列教程</a><time datetime="2019-10-21T13:47:04.000Z" title="发表于 2019-10-21 21:47 21:47:04">2019-10-21 21:47</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/27870/" title="国内图床服务对比"><img data-lazy-src="/p/27870/20191009165852.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国内图床服务对比"/></a><div class="content"><a class="title" href="/p/27870/" title="国内图床服务对比">国内图床服务对比</a><time datetime="2019-10-07T14:56:33.000Z" title="发表于 2019-10-07 22:56 22:56:33">2019-10-07 22:56</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/13330/" title="Markdown Nice-微信公众号排版神器"><img data-lazy-src="/p/13330/20191012231650.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown Nice-微信公众号排版神器"/></a><div class="content"><a class="title" href="/p/13330/" title="Markdown Nice-微信公众号排版神器">Markdown Nice-微信公众号排版神器</a><time datetime="2019-10-03T03:34:04.000Z" title="发表于 2019-10-03 11:34 11:34:04">2019-10-03 11:34</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/excel/"><span class="card-category-list-name">excel</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">4</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/Spock/"><span class="card-category-list-name">Spock</span><span class="card-category-list-count">3</span></a></li></ul><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%B8%B8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">日常工具</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B/"><span class="card-category-list-name">真实案例</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">项目管理</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">十一月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">9</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-24T08:14:17.561Z"></div></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By sudot</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png"/><span>渝ICP备15006197号</span></a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/third-party/juice.min.js"></script><script src="/js/third-party/cheerio.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script src="/js/third-party/ClickShowText.js" async="async"></script></div></body></html>
