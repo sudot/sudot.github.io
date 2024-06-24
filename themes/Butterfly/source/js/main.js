@@ -644,26 +644,53 @@ $(function () {
       html = html.replace(/mjx-container/g, 'section')
       html = html.replace(/class="mjx-solid"/g, 'fill="none" stroke-width="70"')
       html = html.replace(/<mjx-assistive-mml.+?<\/mjx-assistive-mml>/g, '')
-      console.log('GLOBAL_CONFIG.root', GLOBAL_CONFIG.root)
-      $.ajax({
-        url: GLOBAL_CONFIG.root + 'css/index.css',
-        dataType: 'text',
-        success: function (xmlResponse) {
-          const basicStyle = xmlResponse
-          let res = ''
-          try {
-            res = juice.inlineContent(html, basicStyle, {
-              inlinePseudoElements: true,
-              preserveImportant: true,
-            })
-            console.log('resres', res)
-          } catch (e) {
-            console.error('请检查 CSS 文件是否编写正确！', e)
-          }
-        },
-      })
 
-      return res
+      return new Promise((resolve, reject) => {
+        const cssReqList = []
+        $('link[rel="stylesheet"]').each((_, dom) => {
+          const req = new Promise((resolve, reject) =>
+            $.ajax({
+              url: $(dom).attr('href'),
+              dataType: 'text',
+              success: function (xmlResponse) {
+                const basicStyle = xmlResponse
+                try {
+                  const res = juice.inlineContent(html, basicStyle, {
+                    inlinePseudoElements: true,
+                    preserveImportant: true,
+                  })
+                  resolve(res)
+                } catch (e) {
+                  console.error('请检查 CSS 文件是否编写正确！', e)
+                  reject('请检查 CSS 文件是否编写正确！')
+                }
+              },
+              error: function (e) {
+                console.error('CSS 样式文件请求失败！', e)
+                reject('CSS 样式文件请求失败！')
+              },
+            })
+          )
+          cssReqList.push(req)
+        })
+        Promise.all(cssReqList)
+          .then((cssArray) => {
+            try {
+              const res = juice.inlineContent(cssArray.join('\n'), {
+                inlinePseudoElements: true,
+                preserveImportant: true,
+              })
+              resolve(res)
+            } catch (e) {
+              console.error('请检查 CSS 文件是否编写正确！', e)
+              reject('请检查 CSS 文件是否编写正确！')
+            }
+          })
+          .catch((e) => {
+            console.error('ALL CSS 样式文件请求失败！', e)
+            reject('ALL CSS 样式文件请求失败！')
+          })
+      })
     }
 
     const copySafari = (text) => {
@@ -687,13 +714,17 @@ $(function () {
       document.addEventListener('copy', function copyCall(e) {
         e.preventDefault()
         e.clipboardData.setData('text/html', text)
-        // e.clipboardData.setData('text/plain', text)
+        e.clipboardData.setData('text/plain', text)
         document.removeEventListener('copy', copyCall)
       })
       document.execCommand('copy')
     }
 
-    copySafari(solveHtml())
+    solveHtml()
+      .then(copySafari)
+      .catch((e) => {
+        console.log('catch', e)
+      })
   })
 
   // read-mode

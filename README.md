@@ -43,8 +43,8 @@ sudot.github.io
     下载地址：https://nodejs.org/zh-cn/download/  
     配置国内镜像用于加速下载依赖
   ```
-npm config set registry https://registry.npm.taobao.org
-npm config set disturl https://npm.taobao.org/dist
+npm config set registry http://registry.npmmirror.com
+npm config set disturl https://npmmirror.com/mirrors/node/
   ```
 
 2. 拉取此配置仓库
@@ -116,3 +116,23 @@ npm install
 3. 按如下设置方式设置 typora 的图片引用
   ![](images/typora-images-setting.png)  
   ![](images/replace-images-link-good.png)  
+
+### 添加文章复制到其他平台发布的功能
+> 此功能利用 `juice` 库，可以将文章复制为需要的格式，
+> 但是 `juice` 不支持浏览器中直接运行，
+> 所以安装 `browserify` 工具将 `juice` 转换为浏览器可用的 js 文件
+
+
+1. 安装 browserify：`npm i browserify`
+
+2. 安装 juice：`npm i juice`
+
+3. 将 juice 打包成浏览器可识别的 js 文件：`npx browserify -r juice -s juice > themes\Butterfly\source\js\third-party\juice.min.js`
+
+4. `\_config.butterfly.yml` 和 `themes\Butterfly\_config.yml` 中增加 `CDN: juice: /js/third-party/juice.min.js`
+
+5. `\themes\Butterfly\layout\includes\additional-js.pug` 增加 `script(src=url_for(theme.CDN.juice))`
+
+6. `themes/Butterfly/layout/includes/rightside.pug` 中增加复制按钮 `button#copy_to_wechat_mp(type="button" title=_p("rightside.copy_to_wechat_mp"))`
+
+7. `themes\Butterfly\source\js\main.js` 中绑定按钮点击事件 `$rightsideEle.on('click', '#copy_to_wechat_mp', () => {})`
