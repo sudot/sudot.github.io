@@ -8,11 +8,12 @@
 
 本来是想自己做一个 go 语言基于解析 md 文件来生成静态文件的应用，也以此来学习和练习 go 语言，  
 但是：
+
 1. 审美能力太弱，无法做出好看的主题
 2. 在使用 flutter 的过程中偶然看见一个博客使用 hexo 和一款主题搭配很好看，又让我有了使用 hexo 来部署的想法
 3. 自己做一时半会儿也做不好，既然也是基于解析 md 文件生成静态文件，和不先实际的试试 hexo 呢，就是最后还是自己做，那也可以借鉴 hexo 优秀的地方
 
-于是，此项目由最初的 java 更改为 go，现在又更改成 html 了。 哈哈哈😄
+于是，此项目由最初的 java 更改为 go，现在又更改成 html 了。 哈哈哈 😄
 
 ## 目录结构
 
@@ -40,89 +41,114 @@ sudot.github.io
 ## 操作步骤
 
 1. 安装 nodejs
-    下载地址：https://nodejs.org/zh-cn/download/  
-    配置国内镜像用于加速下载依赖
-  ```
-npm config set registry http://registry.npmmirror.com
-npm config set disturl https://npmmirror.com/mirrors/node/
-  ```
+   下载地址：https://nodejs.org/zh-cn/download/  
+   配置国内镜像用于加速下载依赖
+
+   ```
+   npm config set registry http://registry.npmmirror.com
+   npm config set disturl https://npmmirror.com/mirrors/node/
+   ```
 
 2. 拉取此配置仓库
-  ```
-git clone -b hexo git@github.com:sudot/sudot.net.git
-  ```
+
+   ```
+   git clone -b hexo git@github.com:sudot/sudot.net.git
+   ```
 
 3. 拉取笔记仓库
-  ```
-git clone git@github.com:sudot/notes.git source/_posts
-  ```
+
+   ```
+   git clone git@github.com:sudot/notes.git source/_posts
+   ```
 
 4. 安装项目依赖
-  ```
-npm install
-  ```
+
+   ```
+   npm install
+   ```
 
 5. 创建文章
 
-  命令：```hero new <名称>```
+   命令：`hero new <名称>`
 
-  简写：```hexo n <名称>```
+   简写：`hexo n <名称>`
 
 6. 本地预览
 
-  命令：```npm run dev``` 或 ```hexo server``` 或 ```npx hexo server```
+   命令：`npm run dev` 或 `hexo server` 或 `npx hexo server`
 
-  简写：```hexo s``` 或 ```npx hexo s```
+   简写：`hexo s` 或 `npx hexo s`
 
 7. 发布
 
-  命令：```npm run build``` 或 ```hexo generate --deploy``` 或 ```hexo deploy --generate```
+   命令：`npm run build` 或 `hexo generate --deploy` 或 `hexo deploy --generate`
 
-  简写：```hexo g -d``` 或 ```hexo d -g```
+   简写：`hexo g -d` 或 `hexo d -g`
 
 ## 扩展部分
 
 ### 扩展文章图片支持本地显示
 
-修改原因: markdown 天然对图片的嵌入支持不好，导致编辑器中和 hexo 部署后图片路径无法统一，而单纯修改 hexo 配置文件 `_config.yml` 中 `post_asset_folder` 为 `true` 也起不到很好的作用。  
+修改原因: markdown 天然对图片的嵌入支持不好，导致编辑器中和 hexo 部署后图片路径无法统一，而单纯修改 hexo 配置文件 `_config.yml` 中 `post_asset_folder` 为 `true` 也起不到很好的作用。
+
 现象如下(文章的顶部图片未正常加载)：  
 ![文章的顶部图片未正常加载](images/replace-images-link-bad.png)
 
 修改结果：本地预览和部署后可以使用相同的本地图片资源。优化后的效果如下：
 
 ![](images/replace-images-link-html.png)  
-![](images/replace-images-link-good.png)  
+![](images/replace-images-link-good.png)
 
 修改方式：
 
 1. 修改 hexo 配置文件 `_config.yml` 中 `post_asset_folder` 为 `true`
-    ```
+   ```
    post_asset_folder: true
-    ```
+   ```
 2. 增加过滤脚本。  
     在项目根目录`scripts`中，新增 `scripts\replace-images-link.js` 脚本，用于过滤符合存储规则的图片引用路径。
-    ```
-    top_img: 'Java开发入坑前端指南/20191125203657.png'
-    cover: 'Java开发入坑前端指南/20191125203657.png'
-    ![WorldWideWeb 模拟界面](Java开发入坑前端指南/1574242158505.png)
-    ```
+   ```
+   top_img: 'Java开发入坑前端指南/20191125203657.png'
+   cover: 'Java开发入坑前端指南/20191125203657.png'
+   ![WorldWideWeb 模拟界面](Java开发入坑前端指南/1574242158505.png)
+   ```
    替换为
-    ```
+   ```
    top_img: '/p/xxx/20191125203657.png'
    cover: '/p/xxx/20191125203657.png'
    ![WorldWideWeb 模拟界面](/p/xxx/1574242158505.png)
-    ```
-   
+   ```
 3. 按如下设置方式设置 typora 的图片引用
-  ![](images/typora-images-setting.png)  
-  ![](images/replace-images-link-good.png)  
+   ![](images/typora-images-setting.png)  
+   ![](images/replace-images-link-good.png)
+
+### 扩展文章引入支持 Markdown 语法
+
+修改原因: markdown 文件中引入本地的另一个 markdown 文件，在本地可以正常显示，但是发布后路径引用错误。若使用 hexo 的标签方式引入，本地又无法显示了。
+
+修改方式：
+
+1. 修改 hexo 配置文件 `_config.yml` 中 `post_asset_folder` 为 `true`
+   ```
+   post_asset_folder: true
+   ```
+2. 增加过滤脚本。  
+    在项目根目录`scripts`中，新增 `scripts\replace-post-link.js` 脚本，用于过滤符合规则的文章引用路径。
+   ```
+   - [配件说明](02-配件说明.md)
+   - [COUNTIF](../../excel/COUNTIF.md)
+   ```
+   替换为
+   ```
+   [配件说明](/p/xxx/)
+   [COUNTIF](/p/xxx/)
+   ```
 
 ### 添加文章复制到其他平台发布的功能
 
 > 此功能利用 `juice` 库，可以将文章复制为需要的格式，
 > 但是 `juice` 和 `cheerio` 不支持浏览器中直接运行，
 > 所以安装 `browserify` 工具将 `juice` 和 `cheerio` 转换为浏览器可用的 js 文件
-
 
 1. 安装 browserify：`npm i browserify`
 
@@ -131,11 +157,12 @@ npm install
 3. 将 cheerio 打包成浏览器可识别的 js 文件：`npx browserify -r cheerio -s cheerio > themes\Butterfly\source\js\third-party\cheerio.min.js`
 
 4. `themes\Butterfly\_config.yml` 中增加 `CDN: juice: /js/third-party/juice.min.js`
-```yaml
-CDN:
-  juice: /js/third-party/juice.min.js
-  cheerio: /js/third-party/cheerio.min.js
-```
+
+   ```yaml
+   CDN:
+     juice: /js/third-party/juice.min.js
+     cheerio: /js/third-party/cheerio.min.js
+   ```
 
 5. `\themes\Butterfly\layout\includes\additional-js.pug` 增加 `script(src=url_for(theme.CDN.juice))` 和 `script(src=url_for(theme.CDN.cheerio))`
 
