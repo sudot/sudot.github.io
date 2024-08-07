@@ -52,13 +52,13 @@ sudot.github.io
 2. 拉取此配置仓库
 
    ```
-   git clone -b hexo git@github.com:sudot/sudot.net.git
+   git clone -b hexo git@github.com:sudot/sudot.github.io.git
    ```
 
 3. 拉取笔记仓库
 
    ```
-   git clone git@github.com:sudot/notes.git source/_posts
+   git clone git@github.com:sudot/_post.git sudot.github.io/source/_posts
    ```
 
 4. 安装项目依赖
@@ -70,6 +70,8 @@ sudot.github.io
 5. 创建文章
 
    命令：`hero new <名称>`
+
+   命令：`hero new <文件夹>/<文件名> '标题'`
 
    简写：`hexo n <名称>`
 
